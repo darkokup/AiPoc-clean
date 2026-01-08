@@ -1,0 +1,65 @@
+{
+  "sponsor": "Acme Pharmaceutical Inc.",
+  "title": "A Phase II, Randomized, Double-Blind, Placebo-Controlled Study to Evaluate the Efficacy and Safety of ACM-1234 in Patients with Moderate to Severe Chronic Disease X",
+  "short_title": "ACM-1234 in Disease X",
+  "indication": "Moderate to Severe Chronic Disease X",
+  "phase": "Phase 2",
+  "design": "randomized, double-blind, placebo-controlled, parallel-group",
+  "sample_size": 120,
+  "duration_weeks": 24,
+  "treatment_arms": [
+    "ACM-1234 100mg once daily",
+    "ACM-1234 200mg once daily",
+    "Placebo once daily"
+  ],
+  "key_endpoints": [
+    {
+      "type": "primary",
+      "name": "Change from baseline in Disease Activity Score (DAS) at Week 24",
+      "description": "Mean change in DAS score from baseline to Week 24",
+      "measurement_timepoint": "Week 24"
+    },
+    {
+      "type": "secondary",
+      "name": "Proportion of patients achieving clinical remission at Week 24",
+      "description": "Percentage of patients with DAS < 2.6 at Week 24",
+      "measurement_timepoint": "Week 24"
+    },
+    {
+      "type": "secondary",
+      "name": "Incidence of treatment-emergent adverse events",
+      "description": "Safety and tolerability assessment",
+      "measurement_timepoint": "Throughout study"
+    },
+    {
+      "type": "exploratory",
+      "name": "Change in quality of life scores",
+      "description": "Change in SF-36 scores from baseline",
+      "measurement_timepoint": "Week 12 and Week 24"
+    }
+  ],
+  "inclusion_criteria": [
+    "Male or female patients aged 18-75 years",
+    "Confirmed diagnosis of Chronic Disease X for at least 6 months",
+    "Disease Activity Score (DAS) ≥ 3.2 at screening",
+    "Inadequate response to at least one conventional therapy",
+    "Stable concomitant medications for at least 4 weeks prior to screening",
+    "Willing and able to provide written informed consent"
+  ],
+  "exclusion_criteria": [
+    "Previous treatment with ACM-1234 or similar investigational products",
+    "Active or latent tuberculosis",
+    "History of severe allergic or anaphylactic reactions",
+    "Significant hepatic impairment (ALT/AST > 3x ULN)",
+    "Significant renal impairment (eGFR < 30 mL/min/1.73m²)",
+    "Active malignancy within the past 5 years (except basal cell carcinoma)",
+    "Pregnancy or breastfeeding",
+    "Major surgery within 8 weeks prior to screening",
+    "Active infection requiring systemic antimicrobial therapy"
+  ],
+  "age_range": "18-75",
+  "region": "US/EU/Canada",
+  "number_of_sites": 25,
+  "background": "Chronic Disease X is a progressive inflammatory condition affecting millions of patients worldwide. Current therapeutic options provide inadequate disease control in a significant proportion of patients. ACM-1234 is a novel small molecule with a unique mechanism of action targeting key inflammatory pathways. Preclinical studies and Phase 1 data have demonstrated promising efficacy and a favorable safety profile. This Phase 2 study aims to establish proof-of-concept for ACM-1234 in patients with moderate to severe Chronic Disease X.",
+  "prior_therapy_allowed": true
+}

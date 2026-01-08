@@ -1,0 +1,516 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "ResearchStudy",
+        "id": "PROT-59881A24",
+        "status": "active",
+        "title": "Test Clinical Trial Protocol",
+        "description": "Phase 2 This Phase 2 randomized, double-blind, placebo-controlled trial aims to evaluate the efficacy and safety of a novel therapeutic agent in adult patients with Type 2 Diabetes Mellitus. The study will enroll 100 participants who will be randomly assigned in a 1:1 ratio to receive either the investigational drug or a placebo for a duration of 24 weeks. The primary endpoint is the change in HbA1c levels from baseline to week 24, assessing the drug's impact on glycemic control. Secondary endpoints include fasting plasma glucose, body weight, and safety profile, specifically monitoring for hypoglycemic events and changes in lipid parameters. Participants will undergo regular assessments, including continuous glucose monitoring and standardized meal tolerance tests, to ensure comprehensive evaluation of metabolic effects relevant to Type 2 Diabetes Mellitus. study in Type 2 Diabetes Mellitus",
+        "enrollment": [
+          {
+            "reference": "Group/PROT-59881A24-enrollment"
+          }
+        ],
+        "period": {
+          "start": "2025-11-12T20:53:31.666605"
+        },
+        "sponsor": {
+          "display": "Test Sponsor"
+        },
+        "principalInvestigator": {
+          "display": "To be determined"
+        },
+        "phase": {
+          "text": "Phase 2"
+        },
+        "category": [
+          {
+            "text": "Interventional"
+          }
+        ],
+        "focus": [
+          {
+            "text": "Type 2 Diabetes Mellitus"
+          }
+        ],
+        "objective": [
+          {
+            "name": "Primary Objective",
+            "type": {
+              "text": "primary"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "PROT-59881A24-DM",
+        "status": "active",
+        "title": "Demographics",
+        "description": "Subject demographics and baseline characteristics",
+        "item": [
+          {
+            "linkId": "SUBJID",
+            "text": "Subject ID",
+            "type": "string",
+            "required": true
+          },
+          {
+            "linkId": "AGE",
+            "text": "Age (years)",
+            "type": "decimal",
+            "required": true,
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 0
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 120
+              }
+            ]
+          },
+          {
+            "linkId": "SEX",
+            "text": "Sex",
+            "type": "choice",
+            "required": true
+          },
+          {
+            "linkId": "RACE",
+            "text": "Race",
+            "type": "choice",
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "PROT-59881A24-VS",
+        "status": "active",
+        "title": "Vital Signs",
+        "description": "Vital signs assessment",
+        "item": [
+          {
+            "linkId": "VS_DATE",
+            "text": "Assessment Date",
+            "type": "date",
+            "required": true
+          },
+          {
+            "linkId": "SYSBP",
+            "text": "Systolic Blood Pressure (mmHg)",
+            "type": "decimal",
+            "required": true,
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 50
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 250
+              }
+            ]
+          },
+          {
+            "linkId": "DIABP",
+            "text": "Diastolic Blood Pressure (mmHg)",
+            "type": "decimal",
+            "required": true,
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 30
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 150
+              }
+            ]
+          },
+          {
+            "linkId": "HR",
+            "text": "Heart Rate (bpm)",
+            "type": "decimal",
+            "required": true,
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 30
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 200
+              }
+            ]
+          },
+          {
+            "linkId": "TEMP",
+            "text": "Temperature (\u00b0C)",
+            "type": "decimal",
+            "required": true,
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 35.0
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 42.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "PROT-59881A24-AE",
+        "status": "active",
+        "title": "Adverse Events",
+        "description": "Adverse event reporting",
+        "item": [
+          {
+            "linkId": "AE_TERM",
+            "text": "Adverse Event Term",
+            "type": "string",
+            "required": true
+          },
+          {
+            "linkId": "AE_START",
+            "text": "Start Date",
+            "type": "date",
+            "required": true
+          },
+          {
+            "linkId": "AE_SEV",
+            "text": "Severity",
+            "type": "choice",
+            "required": true
+          },
+          {
+            "linkId": "AE_REL",
+            "text": "Relationship to Study Drug",
+            "type": "choice",
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "PROT-59881A24-LABS",
+        "status": "active",
+        "title": "Laboratory Tests",
+        "description": "Comprehensive metabolic panel including liver and kidney function tests",
+        "item": [
+          {
+            "linkId": "TEST_NAME",
+            "text": "Test Name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "linkId": "RESULT_VALUE",
+            "text": "Result Value",
+            "type": "decimal",
+            "required": true
+          },
+          {
+            "linkId": "UNITS",
+            "text": "Units",
+            "type": "string",
+            "required": true
+          },
+          {
+            "linkId": "NORMAL_RANGE",
+            "text": "Normal Range",
+            "type": "string",
+            "required": false
+          },
+          {
+            "linkId": "COLLECTION_DATE",
+            "text": "Collection Date",
+            "type": "date",
+            "required": true
+          },
+          {
+            "linkId": "FASTING_STATUS",
+            "text": "Fasting Status",
+            "type": "choice",
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "PROT-59881A24-HBA1C",
+        "status": "active",
+        "title": "HbA1c",
+        "description": "Measurement of glycated hemoglobin to assess long-term glucose control",
+        "item": [
+          {
+            "linkId": "HB1C_TEST_DATE",
+            "text": "Test Date",
+            "type": "date",
+            "required": true
+          },
+          {
+            "linkId": "HB1C_RESULT",
+            "text": "HbA1c Result (%)",
+            "type": "decimal",
+            "required": true
+          },
+          {
+            "linkId": "HB1C_UNITS",
+            "text": "Result Units",
+            "type": "string",
+            "required": false
+          },
+          {
+            "linkId": "HB1C_NORMAL_RANGE",
+            "text": "Normal Range (%)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "linkId": "HB1C_METHOD",
+            "text": "Test Method",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "PROT-59881A24-FBG",
+        "status": "active",
+        "title": "Fasting Blood Glucose",
+        "description": "Measurement of fasting blood glucose levels",
+        "item": [
+          {
+            "linkId": "FBG_DATE",
+            "text": "Date of Fasting Blood Glucose Measurement",
+            "type": "date",
+            "required": true
+          },
+          {
+            "linkId": "FBG_TIME",
+            "text": "Time of Fasting Blood Glucose Measurement",
+            "type": "string",
+            "required": true
+          },
+          {
+            "linkId": "FBG_VALUE",
+            "text": "Fasting Blood Glucose Value",
+            "type": "decimal",
+            "required": true
+          },
+          {
+            "linkId": "FBG_UNITS",
+            "text": "Units of Measurement",
+            "type": "choice",
+            "required": true
+          },
+          {
+            "linkId": "FBG_NORM_RANGE",
+            "text": "Normal Range for Fasting Blood Glucose",
+            "type": "string",
+            "required": false
+          },
+          {
+            "linkId": "FBG_COMMENTS",
+            "text": "Comments",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "PROT-59881A24-PPG",
+        "status": "active",
+        "title": "Postprandial Glucose",
+        "description": "Measurement of blood glucose levels two hours after meals",
+        "item": [
+          {
+            "linkId": "PPG_DATE",
+            "text": "Date of Postprandial Glucose Measurement",
+            "type": "date",
+            "required": true
+          },
+          {
+            "linkId": "PPG_TIME",
+            "text": "Time of Postprandial Glucose Measurement",
+            "type": "string",
+            "required": true
+          },
+          {
+            "linkId": "PPG_VALUE",
+            "text": "Postprandial Glucose Value",
+            "type": "decimal",
+            "required": true
+          },
+          {
+            "linkId": "PPG_UNITS",
+            "text": "Units of Measurement",
+            "type": "choice",
+            "required": true
+          },
+          {
+            "linkId": "MEAL_TYPE",
+            "text": "Type of Meal Consumed",
+            "type": "string",
+            "required": false
+          },
+          {
+            "linkId": "PPG_COMMENTS",
+            "text": "Comments or Observations",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "PROT-59881A24-BW",
+        "status": "active",
+        "title": "Body Weight",
+        "description": "Measurement of body weight to monitor changes",
+        "item": [
+          {
+            "linkId": "BW_DATE",
+            "text": "Assessment Date",
+            "type": "date",
+            "required": true
+          },
+          {
+            "linkId": "BW_WEIGHT",
+            "text": "Body Weight (kg)",
+            "type": "decimal",
+            "required": true
+          },
+          {
+            "linkId": "BW_METHOD",
+            "text": "Measurement Method",
+            "type": "choice",
+            "required": true
+          },
+          {
+            "linkId": "BW_CHANGE",
+            "text": "Weight Change Since Last Visit (kg)",
+            "type": "decimal",
+            "required": false
+          },
+          {
+            "linkId": "BW_COMMENTS",
+            "text": "Comments",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "PROT-59881A24-BMI",
+        "status": "active",
+        "title": "Body Mass Index",
+        "description": "Calculation of BMI to monitor weight changes in relation to height",
+        "item": [
+          {
+            "linkId": "HEIGHT_CM",
+            "text": "Height (cm)",
+            "type": "decimal",
+            "required": true
+          },
+          {
+            "linkId": "WEIGHT_KG",
+            "text": "Weight (kg)",
+            "type": "decimal",
+            "required": true
+          },
+          {
+            "linkId": "BMI_VALUE",
+            "text": "BMI Value",
+            "type": "decimal",
+            "required": false
+          },
+          {
+            "linkId": "BMI_CATEGORY",
+            "text": "BMI Category",
+            "type": "choice",
+            "required": false
+          },
+          {
+            "linkId": "ASSESSMENT_DATE",
+            "text": "Assessment Date",
+            "type": "date",
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "PROT-59881A24-INSULIN",
+        "status": "active",
+        "title": "Insulin Levels",
+        "description": "Measurement of fasting insulin levels to assess insulin resistance",
+        "item": [
+          {
+            "linkId": "INSULIN_DATE",
+            "text": "Assessment Date",
+            "type": "date",
+            "required": true
+          },
+          {
+            "linkId": "FASTING_INSULIN_LEVEL",
+            "text": "Fasting Insulin Level",
+            "type": "decimal",
+            "required": true
+          },
+          {
+            "linkId": "INSULIN_UNIT",
+            "text": "Insulin Level Unit",
+            "type": "choice",
+            "required": true
+          },
+          {
+            "linkId": "NORMAL_RANGE",
+            "text": "Normal Range",
+            "type": "string",
+            "required": false
+          },
+          {
+            "linkId": "INSULIN_RESISTANCE_INDICATOR",
+            "text": "Insulin Resistance Indicator",
+            "type": "choice",
+            "required": false
+          }
+        ]
+      }
+    }
+  ]
+}

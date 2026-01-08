@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Clinical Trial Protocol Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 10px 5px 0 5px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.2em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #495057;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 5px 20px rgba(108, 117, 125, 0.4);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .result {
+            background: #e7f3ff;
+            border: 2px solid #667eea;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .result pre {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error {
+            background: #ffe7e7;
+            border: 2px solid #dc3545;
+            color: #dc3545;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .error.show {
+            display: block;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background: #e9ecef;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .tab.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .endpoint-list {
+            list-style: none;
+        }
+
+        .endpoint-list li {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .endpoint-method {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .method-get { background: #28a745; color: white; }
+        .method-post { background: #007bff; color: white; }
+        .method-delete { background: #dc3545; color: white; }
+
+        .rag-status {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .status-online {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-offline {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .secondary-endpoint-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .secondary-endpoint-select,
+        .secondary-endpoint-text {
+            flex: 1;
+        }
+
+        .btn-small {
+            padding: 8px 15px;
+            font-size: 0.9em;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-small:hover {
+            background: #5568d3;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            padding: 8px 12px;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        #primary-endpoint,
+        .secondary-endpoint-text {
+            margin-top: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Study Design Dropdown Styles */
+        .design-selector {
+            position: relative;
+            width: 100%;
+        }
+
+        .design-dropdown-btn {
+            width: 100%;
+            padding: 12px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            font-size: 1em;
+            color: #333;
+            transition: border-color 0.3s;
+        }
+
+        .design-dropdown-btn:hover {
+            border-color: #667eea;
+        }
+
+        .dropdown-arrow {
+            color: #667eea;
+            font-size: 0.8em;
+            transition: transform 0.3s;
+        }
+
+        .design-dropdown-btn.open .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .design-dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 5px;
+        }
+
+        .design-category {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .design-category:last-child {
+            border-bottom: none;
+        }
+
+        .design-category-header {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .design-checkbox-label {
+            display: flex;
+            align-items: center;
+            padding: 6px 0;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-radius: 3px;
+            padding-left: 5px;
+        }
+
+        .design-checkbox-label:hover {
+            background: #f8f9fa;
+        }
+
+        .design-checkbox {
+            margin-right: 10px;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+
+        #design-custom-input {
+            width: 100%;
+            margin-top: 8px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .design-dropdown-footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-top: 1px solid #ddd;
+        }
+
+        .design-dropdown-footer .btn-small {
+            padding: 6px 12px;
+            font-size: 0.85em;
+        }
+
+        /* Criteria Dropdown Styles (Inclusion/Exclusion) */
+        .criteria-selector {
+            position: relative;
+            width: 100%;
+        }
+
+        .criteria-dropdown-btn {
+            width: 100%;
+            padding: 12px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            font-size: 1em;
+            color: #333;
+            transition: border-color 0.3s;
+        }
+
+        .criteria-dropdown-btn:hover {
+            border-color: #667eea;
+        }
+
+        .criteria-dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            max-height: 450px;
+            overflow-y: auto;
+            margin-top: 5px;
+        }
+
+        .criteria-dropdown-content.dropup {
+            top: auto;
+            bottom: 100%;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .criteria-category {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .criteria-category:last-child {
+            border-bottom: none;
+        }
+
+        .criteria-category-header {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .criteria-checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            padding: 6px 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-radius: 3px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .criteria-checkbox-label:hover {
+            background: #f8f9fa;
+        }
+
+        .inclusion-checkbox,
+        .exclusion-checkbox {
+            margin-right: 10px;
+            margin-top: 3px;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .criteria-custom-textarea {
+            width: 100%;
+            min-height: 80px;
+            margin-top: 8px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9em;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .criteria-dropdown-footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-top: 1px solid #ddd;
+        }
+
+        .criteria-dropdown-footer .btn-small {
+            padding: 6px 12px;
+            font-size: 0.85em;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .secondary-endpoint-row {
+                flex-direction: column;
+            }
+            
+            .design-dropdown-content {
+                max-height: 300px;
+            }
+            
+            .criteria-dropdown-content {
+                max-height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧬 AI Clinical Trial Protocol Generator</h1>
+            <p>Generate CDISC-compliant clinical trial protocols with RAG-enhanced AI</p>
+            <div>
+                <span class="badge">✓ RAG Enabled</span>
+                <span class="badge">✓ CDASH Compliant</span>
+                <span class="badge">✓ FHIR Export</span>
+                <span class="badge">✓ ODM XML</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Left Column: Protocol Generator -->
+            <div class="section full-width">
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('generate')">📝 Generate Protocol</button>
+                    <button class="tab" onclick="switchTab('rag')">🔍 RAG Search</button>
+                    <button class="tab" onclick="switchTab('api')">🌐 API Endpoints</button>
+                </div>
+
+                <!-- Generate Protocol Tab -->
+                <div id="generate-tab" class="tab-content active">
+                    <h2><span class="icon">📝</span> Protocol Generator</h2>
+                    
+                    <div class="rag-status">
+                        <strong>RAG Status:</strong> 
+                        <span id="rag-status" class="status-badge status-offline">Checking...</span>
+                        <span id="rag-count"></span>
+                    </div>
+
+                    <form id="protocol-form">
+                        <div class="form-group">
+                            <label for="sponsor">Sponsor *</label>
+                            <input type="text" id="sponsor" required placeholder="e.g., Pharma Research Institute">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Protocol Title *</label>
+                            <input type="text" id="title" required placeholder="e.g., Phase 2 Study of Novel Therapy in Disease X">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="indication">Indication * <span style="font-weight:normal; font-size:0.85em; color:#666;">(1,096 real protocols)</span></label>
+                            <select id="indication-select" title="Select indication" onchange="handleIndicationSelect()">
+                                <option value="">Select an indication</option>
+                                
+                                <optgroup label="Oncology (most common)">
+                                    <option value="Breast Cancer">Breast Cancer</option>
+                                    <option value="Multiple Myeloma">Multiple Myeloma</option>
+                                    <option value="Ovarian Cancer">Ovarian Cancer</option>
+                                    <option value="Prostate Cancer">Prostate Cancer</option>
+                                    <option value="Gastric Cancer">Gastric Cancer</option>
+                                    <option value="Advanced Non-Small Cell Lung Cancer">Advanced Non-Small Cell Lung Cancer</option>
+                                    <option value="Non-Small Cell Lung Cancer">Non-Small Cell Lung Cancer</option>
+                                    <option value="Leukemia">Leukemia</option>
+                                    <option value="Colorectal Cancer">Colorectal Cancer</option>
+                                    <option value="Glioblastoma">Glioblastoma</option>
+                                    <option value="Pancreatic Cancer">Pancreatic Cancer</option>
+                                    <option value="Lung Cancer">Lung Cancer</option>
+                                    <option value="Hepatocellular Carcinoma">Hepatocellular Carcinoma</option>
+                                    <option value="Melanoma">Melanoma</option>
+                                    <option value="Lymphoma">Lymphoma</option>
+                                </optgroup>
+                                
+                                <optgroup label="Cardiovascular">
+                                    <option value="Hypertension">Hypertension</option>
+                                    <option value="Hypercholesterolemia">Hypercholesterolemia</option>
+                                    <option value="Atrial Fibrillation">Atrial Fibrillation</option>
+                                    <option value="Heart Failure">Heart Failure</option>
+                                    <option value="Stroke">Stroke</option>
+                                    <option value="Myocardial Infarction">Myocardial Infarction</option>
+                                    <option value="Pulmonary Hypertension">Pulmonary Hypertension</option>
+                                    <option value="Coronary Heart Disease">Coronary Heart Disease</option>
+                                    <option value="Acute Coronary Syndrome">Acute Coronary Syndrome</option>
+                                </optgroup>
+                                
+                                <optgroup label="Rheumatology / Immunology">
+                                    <option value="Rheumatoid Arthritis">Rheumatoid Arthritis</option>
+                                    <option value="Psoriasis">Psoriasis</option>
+                                    <option value="Lupus Nephritis">Lupus Nephritis</option>
+                                    <option value="Plaque Psoriasis">Plaque Psoriasis</option>
+                                    <option value="Systemic Lupus Erythematosus">Systemic Lupus Erythematosus</option>
+                                    <option value="Ankylosing Spondylitis">Ankylosing Spondylitis</option>
+                                    <option value="Knee Osteoarthritis">Knee Osteoarthritis</option>
+                                    <option value="Osteoarthritis">Osteoarthritis</option>
+                                </optgroup>
+                                
+                                <optgroup label="Neurology">
+                                    <option value="Early Alzheimer's Disease">Early Alzheimer's Disease</option>
+                                    <option value="Alzheimer's Disease">Alzheimer's Disease</option>
+                                    <option value="Parkinson's Disease">Parkinson's Disease</option>
+                                    <option value="Multiple Sclerosis">Multiple Sclerosis</option>
+                                    <option value="Migraine">Migraine</option>
+                                    <option value="Epilepsy">Epilepsy</option>
+                                    <option value="Neuropathic Pain">Neuropathic Pain</option>
+                                    <option value="Stroke">Stroke</option>
+                                </optgroup>
+                                
+                                <optgroup label="Endocrinology / Metabolism">
+                                    <option value="Type 2 Diabetes Mellitus">Type 2 Diabetes Mellitus</option>
+                                    <option value="Obesity">Obesity</option>
+                                    <option value="Type 1 Diabetes Mellitus">Type 1 Diabetes Mellitus</option>
+                                    <option value="Diabetes Mellitus">Diabetes Mellitus</option>
+                                    <option value="Metabolic Syndrome">Metabolic Syndrome</option>
+                                    <option value="Hypoglycemia">Hypoglycemia</option>
+                                    <option value="Thyroid Disorders">Thyroid Disorders</option>
+                                </optgroup>
+                                
+                                <optgroup label="Psychiatry">
+                                    <option value="Schizophrenia">Schizophrenia</option>
+                                    <option value="Treatment-Resistant Depression">Treatment-Resistant Depression</option>
+                                    <option value="Depression">Depression</option>
+                                    <option value="Major Depressive Disorder">Major Depressive Disorder</option>
+                                    <option value="Bipolar Disorder">Bipolar Disorder</option>
+                                    <option value="Anxiety">Anxiety</option>
+                                    <option value="PTSD">PTSD</option>
+                                    <option value="Autism Spectrum Disorders">Autism Spectrum Disorders</option>
+                                    <option value="ADHD">ADHD</option>
+                                </optgroup>
+                                
+                                <optgroup label="Dermatology">
+                                    <option value="Atopic Dermatitis">Atopic Dermatitis</option>
+                                    <option value="Chronic Spontaneous Urticaria">Chronic Spontaneous Urticaria</option>
+                                    <option value="Acne Vulgaris">Acne Vulgaris</option>
+                                    <option value="Hidradenitis Suppurativa">Hidradenitis Suppurativa</option>
+                                    <option value="Chronic Urticaria">Chronic Urticaria</option>
+                                    <option value="Eczema">Eczema</option>
+                                </optgroup>
+                                
+                                <optgroup label="Respiratory">
+                                    <option value="Severe Eosinophilic Asthma">Severe Eosinophilic Asthma</option>
+                                    <option value="Asthma">Asthma</option>
+                                    <option value="Chronic Obstructive Pulmonary Disease">Chronic Obstructive Pulmonary Disease</option>
+                                    <option value="COPD">COPD</option>
+                                    <option value="Idiopathic Pulmonary Fibrosis">Idiopathic Pulmonary Fibrosis</option>
+                                    <option value="Cystic Fibrosis">Cystic Fibrosis</option>
+                                    <option value="Community Acquired Pneumonia">Community Acquired Pneumonia</option>
+                                </optgroup>
+                                
+                                <optgroup label="Gastroenterology">
+                                    <option value="Ulcerative Colitis">Ulcerative Colitis</option>
+                                    <option value="Crohn's Disease">Crohn's Disease</option>
+                                    <option value="Non-Alcoholic Steatohepatitis">Non-Alcoholic Steatohepatitis</option>
+                                    <option value="NASH with Compensated Cirrhosis">NASH with Compensated Cirrhosis</option>
+                                    <option value="Chronic Hepatitis C">Chronic Hepatitis C</option>
+                                    <option value="Hepatitis B">Hepatitis B</option>
+                                    <option value="Irritable Bowel Syndrome">Irritable Bowel Syndrome</option>
+                                    <option value="Gastroesophageal Reflux Disease">Gastroesophageal Reflux Disease</option>
+                                </optgroup>
+                                
+                                <optgroup label="Infectious Disease">
+                                    <option value="HIV Infections">HIV Infections</option>
+                                    <option value="HIV-1 Infection">HIV-1 Infection</option>
+                                    <option value="Influenza">Influenza</option>
+                                    <option value="COVID-19">COVID-19</option>
+                                    <option value="Tuberculosis">Tuberculosis</option>
+                                    <option value="Hepatitis C">Hepatitis C</option>
+                                    <option value="Sepsis">Sepsis</option>
+                                    <option value="Community-Acquired Pneumonia">Community-Acquired Pneumonia</option>
+                                </optgroup>
+                                
+                                <optgroup label="Hematology">
+                                    <option value="Anemia of Chronic Kidney Disease">Anemia of Chronic Kidney Disease</option>
+                                    <option value="Myelodysplastic Syndromes">Myelodysplastic Syndromes</option>
+                                    <option value="Hemophilia">Hemophilia</option>
+                                    <option value="Sickle Cell Disease">Sickle Cell Disease</option>
+                                    <option value="Thrombocytopenia">Thrombocytopenia</option>
+                                    <option value="Polycythemia Vera">Polycythemia Vera</option>
+                                </optgroup>
+                                
+                                <optgroup label="Nephrology">
+                                    <option value="Chronic Kidney Disease">Chronic Kidney Disease</option>
+                                    <option value="Diabetic Nephropathy">Diabetic Nephropathy</option>
+                                    <option value="Kidney Transplant">Kidney Transplant</option>
+                                    <option value="Acute Kidney Injury">Acute Kidney Injury</option>
+                                    <option value="IgA Nephropathy">IgA Nephropathy</option>
+                                </optgroup>
+                                
+                                <optgroup label="Pain Management">
+                                    <option value="Chronic Pain">Chronic Pain</option>
+                                    <option value="Fibromyalgia">Fibromyalgia</option>
+                                    <option value="Low Back Pain">Low Back Pain</option>
+                                    <option value="Osteoarthritis Pain">Osteoarthritis Pain</option>
+                                    <option value="Postoperative Pain">Postoperative Pain</option>
+                                    <option value="Neuropathic Pain">Neuropathic Pain</option>
+                                </optgroup>
+                                
+                                <optgroup label="Ophthalmology">
+                                    <option value="Age-Related Macular Degeneration">Age-Related Macular Degeneration</option>
+                                    <option value="Diabetic Retinopathy">Diabetic Retinopathy</option>
+                                    <option value="Diabetic Macular Edema">Diabetic Macular Edema</option>
+                                    <option value="Glaucoma">Glaucoma</option>
+                                    <option value="Dry Eye">Dry Eye</option>
+                                </optgroup>
+                                
+                                <optgroup label="Other">
+                                    <option value="custom">✏️ Custom (type below)</option>
+                                </optgroup>
+                            </select>
+                            <input type="text" id="indication" class="hidden" placeholder="Enter custom indication">
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label for="phase">Phase *</label>
+                                <select id="phase" required>
+                                    <option value="">Select Phase</option>
+                                    <option value="Phase 1">Phase 1</option>
+                                    <option value="Phase 2">Phase 2</option>
+                                    <option value="Phase 3">Phase 3</option>
+                                    <option value="Phase 4">Phase 4</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="region">Region</label>
+                                <select id="region">
+                                    <option value="US">US</option>
+                                    <option value="EU">EU</option>
+                                    <option value="Global">Global</option>
+                                    <option value="Asia">Asia</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="design">Study Design *</label>
+                            <div class="design-selector">
+                                <button type="button" class="design-dropdown-btn" onclick="toggleDesignDropdown()">
+                                    <span id="design-selected-text">Select design elements</span>
+                                    <span class="dropdown-arrow">▼</span>
+                                </button>
+                                <div id="design-dropdown" class="design-dropdown-content hidden">
+                                    <div class="design-category">
+                                        <div class="design-category-header">Randomization</div>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Randomized" onchange="updateDesignSelection()">
+                                            Randomized
+                                        </label>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Non-randomized" onchange="updateDesignSelection()">
+                                            Non-randomized
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="design-category">
+                                        <div class="design-category-header">Blinding</div>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Double-blind" onchange="updateDesignSelection()">
+                                            Double-blind
+                                        </label>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Single-blind" onchange="updateDesignSelection()">
+                                            Single-blind
+                                        </label>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Open-label" onchange="updateDesignSelection()">
+                                            Open-label
+                                        </label>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Triple-blind" onchange="updateDesignSelection()">
+                                            Triple-blind
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="design-category">
+                                        <div class="design-category-header">Control</div>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Placebo-controlled" onchange="updateDesignSelection()">
+                                            Placebo-controlled
+                                        </label>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Active-controlled" onchange="updateDesignSelection()">
+                                            Active-controlled
+                                        </label>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="No control" onchange="updateDesignSelection()">
+                                            No control
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="design-category">
+                                        <div class="design-category-header">Assignment</div>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Parallel" onchange="updateDesignSelection()">
+                                            Parallel
+                                        </label>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Crossover" onchange="updateDesignSelection()">
+                                            Crossover
+                                        </label>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Factorial" onchange="updateDesignSelection()">
+                                            Factorial
+                                        </label>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Sequential" onchange="updateDesignSelection()">
+                                            Sequential
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="design-category">
+                                        <div class="design-category-header">Additional Features</div>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Multicenter" onchange="updateDesignSelection()">
+                                            Multicenter
+                                        </label>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Adaptive" onchange="updateDesignSelection()">
+                                            Adaptive
+                                        </label>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Dose-escalation" onchange="updateDesignSelection()">
+                                            Dose-escalation
+                                        </label>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Basket trial" onchange="updateDesignSelection()">
+                                            Basket trial
+                                        </label>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" class="design-checkbox" value="Umbrella trial" onchange="updateDesignSelection()">
+                                            Umbrella trial
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="design-category">
+                                        <div class="design-category-header">Custom Entry</div>
+                                        <label class="design-checkbox-label">
+                                            <input type="checkbox" id="design-custom-checkbox" value="custom" onchange="toggleCustomDesign()">
+                                            ✏️ Custom design elements
+                                        </label>
+                                        <input type="text" id="design-custom-input" class="hidden" placeholder="Enter custom design elements" onblur="updateDesignSelection()">
+                                    </div>
+                                    
+                                    <div class="design-dropdown-footer">
+                                        <button type="button" class="btn-small" onclick="clearDesignSelection()">Clear All</button>
+                                        <button type="button" class="btn-small" onclick="toggleDesignDropdown()">Done</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="design" required>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label for="sample_size">Sample Size *</label>
+                                <input type="number" id="sample_size" required placeholder="e.g., 200">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="duration">Duration (weeks) *</label>
+                                <input type="number" id="duration" required placeholder="e.g., 52">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="primary-endpoint">Primary Endpoint *</label>
+                            <select id="primary-endpoint-select" onchange="handleEndpointSelect('primary')" title="Select primary endpoint">
+                                <option value="">-- Select or type custom --</option>
+                                <optgroup label="Oncology">
+                                    <option value="Overall Survival (OS)">Overall Survival (OS)</option>
+                                    <option value="Progression-Free Survival (PFS)">Progression-Free Survival (PFS)</option>
+                                    <option value="Objective Response Rate (ORR)">Objective Response Rate (ORR)</option>
+                                    <option value="Disease-Free Survival (DFS)">Disease-Free Survival (DFS)</option>
+                                    <option value="Complete Response Rate (CR)">Complete Response Rate (CR)</option>
+                                </optgroup>
+                                <optgroup label="Cardiovascular">
+                                    <option value="Change in LDL-C from baseline">Change in LDL-C from baseline</option>
+                                    <option value="Major Adverse Cardiovascular Events (MACE)">Major Adverse Cardiovascular Events (MACE)</option>
+                                    <option value="Change in systolic blood pressure">Change in systolic blood pressure</option>
+                                    <option value="Time to cardiovascular death">Time to cardiovascular death</option>
+                                    <option value="Change in ejection fraction">Change in ejection fraction</option>
+                                </optgroup>
+                                <optgroup label="Rheumatology">
+                                    <option value="ACR20 response at Week 24">ACR20 response at Week 24</option>
+                                    <option value="ACR50 response">ACR50 response</option>
+                                    <option value="DAS28-CRP < 2.6">DAS28-CRP < 2.6</option>
+                                    <option value="Change in HAQ-DI score">Change in HAQ-DI score</option>
+                                </optgroup>
+                                <optgroup label="Neurology">
+                                    <option value="Change in ADAS-Cog score">Change in ADAS-Cog score</option>
+                                    <option value="Annualized relapse rate">Annualized relapse rate</option>
+                                    <option value="Change in UPDRS score">Change in UPDRS score</option>
+                                    <option value="Seizure frequency reduction">Seizure frequency reduction</option>
+                                </optgroup>
+                                <optgroup label="Diabetes/Endocrinology">
+                                    <option value="Change in HbA1c from baseline">Change in HbA1c from baseline</option>
+                                    <option value="Percentage achieving HbA1c < 7%">Percentage achieving HbA1c < 7%</option>
+                                    <option value="Change in fasting plasma glucose">Change in fasting plasma glucose</option>
+                                    <option value="Weight reduction from baseline">Weight reduction from baseline</option>
+                                </optgroup>
+                                <optgroup label="Psychiatry">
+                                    <option value="Change in HAM-D total score">Change in HAM-D total score</option>
+                                    <option value="MADRS total score at Week 8">MADRS total score at Week 8</option>
+                                    <option value="PANSS total score change">PANSS total score change</option>
+                                    <option value="Response rate (50% symptom reduction)">Response rate (50% symptom reduction)</option>
+                                </optgroup>
+                                <optgroup label="Dermatology">
+                                    <option value="PASI-75 response at Week 12">PASI-75 response at Week 12</option>
+                                    <option value="EASI-75 response">EASI-75 response</option>
+                                    <option value="IGA score of 0 or 1">IGA score of 0 or 1</option>
+                                    <option value="Percent change in affected BSA">Percent change in affected BSA</option>
+                                </optgroup>
+                                <optgroup label="Respiratory">
+                                    <option value="Change in FEV1 from baseline">Change in FEV1 from baseline</option>
+                                    <option value="Exacerbation rate reduction">Exacerbation rate reduction</option>
+                                    <option value="Time to first exacerbation">Time to first exacerbation</option>
+                                    <option value="Change in FVC">Change in FVC</option>
+                                </optgroup>
+                                <optgroup label="Gastroenterology">
+                                    <option value="Clinical remission at Week 12">Clinical remission at Week 12</option>
+                                    <option value="Endoscopic improvement">Endoscopic improvement</option>
+                                    <option value="Change in Mayo score">Change in Mayo score</option>
+                                    <option value="Histologic remission">Histologic remission</option>
+                                </optgroup>
+                                <optgroup label="Infectious Disease">
+                                    <option value="Virologic suppression (HIV RNA < 50 copies/mL)">Virologic suppression (HIV RNA < 50 copies/mL)</option>
+                                    <option value="Clinical cure rate">Clinical cure rate</option>
+                                    <option value="Microbiological eradication">Microbiological eradication</option>
+                                    <option value="Sustained virologic response (SVR12)">Sustained virologic response (SVR12)</option>
+                                </optgroup>
+                                <optgroup label="Pain/Anesthesia">
+                                    <option value="Change in NRS pain score">Change in NRS pain score</option>
+                                    <option value="30% reduction in pain intensity">30% reduction in pain intensity</option>
+                                    <option value="Change in VAS score">Change in VAS score</option>
+                                    <option value="Time to rescue medication">Time to rescue medication</option>
+                                </optgroup>
+                                <option value="custom">✏️ Custom (type below)</option>
+                            </select>
+                            <input type="text" id="primary-endpoint" required placeholder="Type custom primary endpoint" class="hidden">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="secondary-endpoints">Secondary Endpoints (optional)</label>
+                            <div id="secondary-endpoints-container">
+                                <div class="secondary-endpoint-row">
+                                    <select class="secondary-endpoint-select" onchange="handleEndpointSelect('secondary', 0)" title="Select secondary endpoint">
+                                        <option value="">-- Select or type custom --</option>
+                                        <optgroup label="Safety">
+                                            <option value="Incidence of adverse events">Incidence of adverse events</option>
+                                            <option value="Incidence of serious adverse events">Incidence of serious adverse events</option>
+                                            <option value="Treatment-emergent adverse events">Treatment-emergent adverse events</option>
+                                            <option value="Laboratory abnormalities">Laboratory abnormalities</option>
+                                        </optgroup>
+                                        <optgroup label="Quality of Life">
+                                            <option value="Change in SF-36 score">Change in SF-36 score</option>
+                                            <option value="Change in EQ-5D score">Change in EQ-5D score</option>
+                                            <option value="Patient Global Assessment">Patient Global Assessment</option>
+                                            <option value="Change in FACIT-Fatigue score">Change in FACIT-Fatigue score</option>
+                                        </optgroup>
+                                        <optgroup label="Pharmacokinetics">
+                                            <option value="Maximum plasma concentration (Cmax)">Maximum plasma concentration (Cmax)</option>
+                                            <option value="Area under curve (AUC)">Area under curve (AUC)</option>
+                                            <option value="Time to maximum concentration (Tmax)">Time to maximum concentration (Tmax)</option>
+                                            <option value="Terminal half-life (t½)">Terminal half-life (t½)</option>
+                                        </optgroup>
+                                        <optgroup label="Biomarkers">
+                                            <option value="Change in inflammatory markers (CRP, ESR)">Change in inflammatory markers (CRP, ESR)</option>
+                                            <option value="Change in biomarker levels">Change in biomarker levels</option>
+                                            <option value="Immunogenicity (anti-drug antibodies)">Immunogenicity (anti-drug antibodies)</option>
+                                        </optgroup>
+                                        <optgroup label="Functional Outcomes">
+                                            <option value="Time to symptom resolution">Time to symptom resolution</option>
+                                            <option value="Duration of response">Duration of response</option>
+                                            <option value="Time to treatment failure">Time to treatment failure</option>
+                                            <option value="Proportion remaining relapse-free">Proportion remaining relapse-free</option>
+                                        </optgroup>
+                                        <option value="custom">✏️ Custom (type below)</option>
+                                    </select>
+                                    <input type="text" class="secondary-endpoint-text hidden" placeholder="Type custom endpoint">
+                                    <button type="button" onclick="removeSecondaryEndpoint(0)" class="btn-small btn-danger hidden">✖</button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="addSecondaryEndpoint()" class="btn-small">➕ Add Secondary Endpoint</button>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inclusion">Inclusion Criteria</label>
+                            <div class="criteria-selector">
+                                <button type="button" class="criteria-dropdown-btn" onclick="toggleCriteriaDropdown('inclusion')">
+                                    <span id="inclusion-selected-text">Select inclusion criteria</span>
+                                    <span class="dropdown-arrow">▼</span>
+                                </button>
+                                <div id="inclusion-dropdown" class="criteria-dropdown-content hidden">
+                                    <div class="criteria-category">
+                                        <div class="criteria-category-header">Age & Demographics</div>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Age 18 years and older" onchange="updateCriteriaSelection('inclusion')">
+                                            Age 18 years and older
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Age 18-65 years" onchange="updateCriteriaSelection('inclusion')">
+                                            Age 18-65 years
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Age 18-75 years" onchange="updateCriteriaSelection('inclusion')">
+                                            Age 18-75 years
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Male or female participants" onchange="updateCriteriaSelection('inclusion')">
+                                            Male or female participants
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="criteria-category">
+                                        <div class="criteria-category-header">Disease Diagnosis</div>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Confirmed diagnosis of [disease] per established criteria" onchange="updateCriteriaSelection('inclusion')">
+                                            Confirmed diagnosis of [disease] per established criteria
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Disease duration ≥ 6 months" onchange="updateCriteriaSelection('inclusion')">
+                                            Disease duration ≥ 6 months
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Moderate to severe disease activity" onchange="updateCriteriaSelection('inclusion')">
+                                            Moderate to severe disease activity
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Histologically or cytologically confirmed diagnosis" onchange="updateCriteriaSelection('inclusion')">
+                                            Histologically or cytologically confirmed diagnosis
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="criteria-category">
+                                        <div class="criteria-category-header">Prior Treatment</div>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Inadequate response to conventional therapy" onchange="updateCriteriaSelection('inclusion')">
+                                            Inadequate response to conventional therapy
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Stable dose of concomitant medications for ≥ 4 weeks" onchange="updateCriteriaSelection('inclusion')">
+                                            Stable dose of concomitant medications for ≥ 4 weeks
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Treatment-naïve or first-line treatment failure" onchange="updateCriteriaSelection('inclusion')">
+                                            Treatment-naïve or first-line treatment failure
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="criteria-category">
+                                        <div class="criteria-category-header">Laboratory & Clinical</div>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Adequate bone marrow function" onchange="updateCriteriaSelection('inclusion')">
+                                            Adequate bone marrow function
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Adequate hepatic function (AST/ALT ≤ 2.5x ULN)" onchange="updateCriteriaSelection('inclusion')">
+                                            Adequate hepatic function (AST/ALT ≤ 2.5x ULN)
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Adequate renal function (eGFR ≥ 60 mL/min)" onchange="updateCriteriaSelection('inclusion')">
+                                            Adequate renal function (eGFR ≥ 60 mL/min)
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="ECOG performance status 0-1" onchange="updateCriteriaSelection('inclusion')">
+                                            ECOG performance status 0-1
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="criteria-category">
+                                        <div class="criteria-category-header">Consent & Compliance</div>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Able to provide written informed consent" onchange="updateCriteriaSelection('inclusion')">
+                                            Able to provide written informed consent
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Willing and able to comply with study procedures" onchange="updateCriteriaSelection('inclusion')">
+                                            Willing and able to comply with study procedures
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="inclusion-checkbox" value="Women of childbearing potential must use effective contraception" onchange="updateCriteriaSelection('inclusion')">
+                                            Women of childbearing potential must use effective contraception
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="criteria-category">
+                                        <div class="criteria-category-header">Custom Entry</div>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" id="inclusion-custom-checkbox" value="custom" onchange="toggleCustomCriteria('inclusion')">
+                                            ✏️ Add custom criteria
+                                        </label>
+                                        <textarea id="inclusion-custom-input" class="hidden criteria-custom-textarea" placeholder="Enter custom inclusion criteria (one per line)" onblur="updateCriteriaSelection('inclusion')"></textarea>
+                                    </div>
+                                    
+                                    <div class="criteria-dropdown-footer">
+                                        <button type="button" class="btn-small" onclick="clearCriteriaSelection('inclusion')">Clear All</button>
+                                        <button type="button" class="btn-small" onclick="toggleCriteriaDropdown('inclusion')">Done</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <textarea id="inclusion" class="hidden"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exclusion">Exclusion Criteria</label>
+                            <div class="criteria-selector">
+                                <button type="button" class="criteria-dropdown-btn" onclick="toggleCriteriaDropdown('exclusion')">
+                                    <span id="exclusion-selected-text">Select exclusion criteria</span>
+                                    <span class="dropdown-arrow">▼</span>
+                                </button>
+                                <div id="exclusion-dropdown" class="criteria-dropdown-content hidden">
+                                    <div class="criteria-category">
+                                        <div class="criteria-category-header">Medical Conditions</div>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Known hypersensitivity to study drug or excipients" onchange="updateCriteriaSelection('exclusion')">
+                                            Known hypersensitivity to study drug or excipients
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Active or uncontrolled infection" onchange="updateCriteriaSelection('exclusion')">
+                                            Active or uncontrolled infection
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="History of malignancy within 5 years" onchange="updateCriteriaSelection('exclusion')">
+                                            History of malignancy within 5 years
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Clinically significant cardiovascular disease" onchange="updateCriteriaSelection('exclusion')">
+                                            Clinically significant cardiovascular disease
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Severe hepatic impairment (Child-Pugh C)" onchange="updateCriteriaSelection('exclusion')">
+                                            Severe hepatic impairment (Child-Pugh C)
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Severe renal impairment (eGFR < 30 mL/min)" onchange="updateCriteriaSelection('exclusion')">
+                                            Severe renal impairment (eGFR < 30 mL/min)
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="criteria-category">
+                                        <div class="criteria-category-header">Prior/Concomitant Therapy</div>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Prior biologic therapy within 3 months" onchange="updateCriteriaSelection('exclusion')">
+                                            Prior biologic therapy within 3 months
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Use of immunosuppressive therapy within 4 weeks" onchange="updateCriteriaSelection('exclusion')">
+                                            Use of immunosuppressive therapy within 4 weeks
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Participation in another clinical trial within 30 days" onchange="updateCriteriaSelection('exclusion')">
+                                            Participation in another clinical trial within 30 days
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Prior treatment with study drug or similar agent" onchange="updateCriteriaSelection('exclusion')">
+                                            Prior treatment with study drug or similar agent
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="criteria-category">
+                                        <div class="criteria-category-header">Pregnancy & Reproduction</div>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Pregnant or breastfeeding women" onchange="updateCriteriaSelection('exclusion')">
+                                            Pregnant or breastfeeding women
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Women of childbearing potential unwilling to use contraception" onchange="updateCriteriaSelection('exclusion')">
+                                            Women of childbearing potential unwilling to use contraception
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Planning pregnancy during study period" onchange="updateCriteriaSelection('exclusion')">
+                                            Planning pregnancy during study period
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="criteria-category">
+                                        <div class="criteria-category-header">Laboratory Abnormalities</div>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Neutrophil count < 1.5 × 10⁹/L" onchange="updateCriteriaSelection('exclusion')">
+                                            Neutrophil count < 1.5 × 10⁹/L
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Platelet count < 100 × 10⁹/L" onchange="updateCriteriaSelection('exclusion')">
+                                            Platelet count < 100 × 10⁹/L
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Hemoglobin < 9 g/dL" onchange="updateCriteriaSelection('exclusion')">
+                                            Hemoglobin < 9 g/dL
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Positive hepatitis B or C serology" onchange="updateCriteriaSelection('exclusion')">
+                                            Positive hepatitis B or C serology
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Positive HIV serology" onchange="updateCriteriaSelection('exclusion')">
+                                            Positive HIV serology
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="criteria-category">
+                                        <div class="criteria-category-header">Substance Use & Mental Health</div>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="History of drug or alcohol abuse within 1 year" onchange="updateCriteriaSelection('exclusion')">
+                                            History of drug or alcohol abuse within 1 year
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Psychiatric disorder that would interfere with study participation" onchange="updateCriteriaSelection('exclusion')">
+                                            Psychiatric disorder that would interfere with study participation
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Suicidal ideation or behavior within 6 months" onchange="updateCriteriaSelection('exclusion')">
+                                            Suicidal ideation or behavior within 6 months
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="criteria-category">
+                                        <div class="criteria-category-header">Other</div>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Any condition that would compromise participant safety" onchange="updateCriteriaSelection('exclusion')">
+                                            Any condition that would compromise participant safety
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Unable or unwilling to comply with study requirements" onchange="updateCriteriaSelection('exclusion')">
+                                            Unable or unwilling to comply with study requirements
+                                        </label>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" class="exclusion-checkbox" value="Life expectancy < 6 months" onchange="updateCriteriaSelection('exclusion')">
+                                            Life expectancy < 6 months
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="criteria-category">
+                                        <div class="criteria-category-header">Custom Entry</div>
+                                        <label class="criteria-checkbox-label">
+                                            <input type="checkbox" id="exclusion-custom-checkbox" value="custom" onchange="toggleCustomCriteria('exclusion')">
+                                            ✏️ Add custom criteria
+                                        </label>
+                                        <textarea id="exclusion-custom-input" class="hidden criteria-custom-textarea" placeholder="Enter custom exclusion criteria (one per line)" onblur="updateCriteriaSelection('exclusion')"></textarea>
+                                    </div>
+                                    
+                                    <div class="criteria-dropdown-footer">
+                                        <button type="button" class="btn-small" onclick="clearCriteriaSelection('exclusion')">Clear All</button>
+                                        <button type="button" class="btn-small" onclick="toggleCriteriaDropdown('exclusion')">Done</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <textarea id="exclusion" class="hidden"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="additional-instructions">💡 Additional Instructions (Optional)</label>
+                            <textarea id="additional-instructions" rows="4" placeholder="Add custom instructions to guide AI generation (e.g., 'Include COVID-19 safety measures', 'Focus on elderly population age 65+', 'Require specific biomarker testing', etc.)"></textarea>
+                            <small style="color: #666; display: block; margin-top: 5px;">
+                                These instructions will be used by the AI to customize objectives, eligibility criteria, and other sections.
+                            </small>
+                        </div>
+
+                        <button type="submit" class="btn">🚀 Generate Protocol</button>
+                    </form>
+
+                    <div id="loading" class="loading">
+                        <div class="spinner"></div>
+                        <p style="margin-top: 15px;">Generating protocol with RAG enhancement...</p>
+                    </div>
+
+                    <div id="error" class="error"></div>
+
+                    <div id="result" class="result">
+                        <h3>✅ Protocol Generated Successfully!</h3>
+                        <p><strong>Request ID:</strong> <span id="request-id"></span></p>
+                        <p><strong>Protocol ID:</strong> <span id="protocol-id"></span></p>
+                        <p><strong>Confidence Score:</strong> <span id="confidence"></span></p>
+                        <p><strong>RAG Retrieved:</strong> <span id="rag-retrieved"></span></p>
+                        <button class="btn btn-secondary" onclick="downloadProtocol()">📥 Download Full Protocol</button>
+                        <button class="btn btn-secondary" onclick="exportODM()">📄 Export ODM XML</button>
+                        <button class="btn btn-secondary" onclick="exportFHIR()">🏥 Export FHIR JSON</button>
+                    </div>
+                </div>
+
+                <!-- RAG Search Tab -->
+                <div id="rag-tab" class="tab-content">
+                    <h2><span class="icon">🔍</span> RAG Similarity Search</h2>
+                    <p style="margin-bottom: 20px; color: #666;">Search for similar protocols in the vector database</p>
+
+                    <form id="search-form">
+                        <div class="form-group">
+                            <label for="search-indication">Indication</label>
+                            <input type="text" id="search-indication" placeholder="e.g., Rheumatoid Arthritis">
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label for="search-phase">Phase</label>
+                                <select id="search-phase">
+                                    <option value="">Any Phase</option>
+                                    <option value="Phase 1">Phase 1</option>
+                                    <option value="Phase 2">Phase 2</option>
+                                    <option value="Phase 3">Phase 3</option>
+                                    <option value="Phase 4">Phase 4</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="search-results">Results</label>
+                                <input type="number" id="search-results" value="3" min="1" max="10">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn">🔍 Search Similar Protocols</button>
+                    </form>
+
+                    <div id="search-loading" class="loading">
+                        <div class="spinner"></div>
+                        <p style="margin-top: 15px;">Searching vector database...</p>
+                    </div>
+
+                    <div id="search-error" class="error"></div>
+
+                    <div id="search-result" class="result">
+                        <h3>Search Results</h3>
+                        <div id="search-results-content"></div>
+                    </div>
+                </div>
+
+                <!-- API Endpoints Tab -->
+                <div id="api-tab" class="tab-content">
+                    <h2><span class="icon">🌐</span> API Endpoints</h2>
+                    <p style="margin-bottom: 20px; color: #666;">
+                        Base URL: <code>http://localhost:8000</code><br>
+                        Interactive Docs: <a href="http://localhost:8000/docs" target="_blank">http://localhost:8000/docs</a>
+                    </p>
+
+                    <h3 style="margin-top: 20px; margin-bottom: 10px; color: #667eea;">Core Endpoints</h3>
+                    <ul class="endpoint-list">
+                        <li>
+                            <span class="endpoint-method method-post">POST</span>
+                            <code>/api/v1/generate</code> - Generate protocol
+                        </li>
+                        <li>
+                            <span class="endpoint-method method-post">POST</span>
+                            <code>/api/v1/validate</code> - Validate trial spec
+                        </li>
+                        <li>
+                            <span class="endpoint-method method-get">GET</span>
+                            <code>/api/v1/protocols</code> - List all protocols
+                        </li>
+                        <li>
+                            <span class="endpoint-method method-get">GET</span>
+                            <code>/api/v1/protocols/{id}</code> - Get protocol by ID
+                        </li>
+                    </ul>
+
+                    <h3 style="margin-top: 20px; margin-bottom: 10px; color: #667eea;">RAG Endpoints</h3>
+                    <ul class="endpoint-list">
+                        <li>
+                            <span class="endpoint-method method-post">POST</span>
+                            <code>/api/v1/rag/seed</code> - Seed database with samples
+                        </li>
+                        <li>
+                            <span class="endpoint-method method-post">POST</span>
+                            <code>/api/v1/rag/search</code> - Search similar protocols
+                        </li>
+                        <li>
+                            <span class="endpoint-method method-get">GET</span>
+                            <code>/api/v1/rag/stats</code> - Database statistics
+                        </li>
+                        <li>
+                            <span class="endpoint-method method-get">GET</span>
+                            <code>/api/v1/rag/examples</code> - List all examples
+                        </li>
+                        <li>
+                            <span class="endpoint-method method-post">POST</span>
+                            <code>/api/v1/rag/add-example</code> - Add to database
+                        </li>
+                        <li>
+                            <span class="endpoint-method method-delete">DELETE</span>
+                            <code>/api/v1/rag/examples/{id}</code> - Delete example
+                        </li>
+                    </ul>
+
+                    <h3 style="margin-top: 20px; margin-bottom: 10px; color: #667eea;">Export Endpoints</h3>
+                    <ul class="endpoint-list">
+                        <li>
+                            <span class="endpoint-method method-post">POST</span>
+                            <code>/api/v1/export/odm</code> - Export to CDISC ODM XML
+                        </li>
+                        <li>
+                            <span class="endpoint-method method-post">POST</span>
+                            <code>/api/v1/export/fhir</code> - Export to FHIR JSON
+                        </li>
+                        <li>
+                            <span class="endpoint-method method-post">POST</span>
+                            <code>/api/v1/export/csv</code> - Export to CSV
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8000';
+        let currentRequestId = null;
+        let secondaryEndpointCount = 1;
+
+        // Check RAG status on load
+        checkRAGStatus();
+
+        // Handle endpoint dropdown selection
+        function handleEndpointSelect(type, index = null) {
+            if (type === 'primary') {
+                const select = document.getElementById('primary-endpoint-select');
+                const input = document.getElementById('primary-endpoint');
+                
+                if (select.value === 'custom') {
+                    input.classList.remove('hidden');
+                    input.required = true;
+                    input.focus();
+                } else {
+                    input.classList.add('hidden');
+                    input.required = false;
+                    input.value = select.value;
+                }
+            } else {
+                const container = document.getElementById('secondary-endpoints-container');
+                const rows = container.querySelectorAll('.secondary-endpoint-row');
+                const row = rows[index];
+                const select = row.querySelector('.secondary-endpoint-select');
+                const input = row.querySelector('.secondary-endpoint-text');
+                
+                if (select.value === 'custom') {
+                    input.classList.remove('hidden');
+                    input.focus();
+                } else {
+                    input.classList.add('hidden');
+                    input.value = select.value;
+                }
+            }
+        }
+
+        // Handle indication dropdown selection
+        function handleIndicationSelect() {
+            const select = document.getElementById('indication-select');
+            const input = document.getElementById('indication');
+            
+            if (select.value === 'custom') {
+                input.classList.remove('hidden');
+                input.required = true;
+                input.focus();
+            } else {
+                input.classList.add('hidden');
+                input.required = false;
+                input.value = select.value;
+            }
+        }
+
+        // Toggle design dropdown visibility
+        function toggleDesignDropdown() {
+            const dropdown = document.getElementById('design-dropdown');
+            const btn = document.querySelector('.design-dropdown-btn');
+            
+            dropdown.classList.toggle('hidden');
+            btn.classList.toggle('open');
+            
+            // Close dropdown when clicking outside
+            if (!dropdown.classList.contains('hidden')) {
+                setTimeout(() => {
+                    document.addEventListener('click', closeDesignOnOutsideClick);
+                }, 0);
+            } else {
+                document.removeEventListener('click', closeDesignOnOutsideClick);
+            }
+        }
+
+        function closeDesignOnOutsideClick(event) {
+            const dropdown = document.getElementById('design-dropdown');
+            const selector = document.querySelector('.design-selector');
+            
+            if (!selector.contains(event.target)) {
+                dropdown.classList.add('hidden');
+                document.querySelector('.design-dropdown-btn').classList.remove('open');
+                document.removeEventListener('click', closeDesignOnOutsideClick);
+            }
+        }
+
+        // Toggle custom design input
+        function toggleCustomDesign() {
+            const checkbox = document.getElementById('design-custom-checkbox');
+            const input = document.getElementById('design-custom-input');
+            
+            if (checkbox.checked) {
+                input.classList.remove('hidden');
+                input.focus();
+            } else {
+                input.classList.add('hidden');
+                input.value = '';
+            }
+            
+            updateDesignSelection();
+        }
+
+        // Update design selection display
+        function updateDesignSelection() {
+            const checkboxes = document.querySelectorAll('.design-checkbox:checked');
+            const customCheckbox = document.getElementById('design-custom-checkbox');
+            const customInput = document.getElementById('design-custom-input');
+            const hiddenInput = document.getElementById('design');
+            const displayText = document.getElementById('design-selected-text');
+            
+            let selectedValues = [];
+            
+            checkboxes.forEach(cb => {
+                if (cb.value === 'custom') {
+                    if (customInput.value.trim()) {
+                        selectedValues.push(customInput.value.trim());
+                    }
+                } else {
+                    selectedValues.push(cb.value);
+                }
+            });
+            
+            if (selectedValues.length === 0) {
+                displayText.textContent = 'Select design elements';
+                displayText.style.color = '#999';
+                hiddenInput.value = '';
+            } else {
+                const displayString = selectedValues.join(', ');
+                displayText.textContent = displayString;
+                displayText.style.color = '#333';
+                hiddenInput.value = displayString;
+            }
+        }
+
+        // Clear all design selections
+        function clearDesignSelection() {
+            const checkboxes = document.querySelectorAll('.design-checkbox');
+            checkboxes.forEach(cb => cb.checked = false);
+            
+            const customInput = document.getElementById('design-custom-input');
+            customInput.classList.add('hidden');
+            customInput.value = '';
+            
+            updateDesignSelection();
+        }
+
+        // Toggle criteria dropdown visibility (inclusion/exclusion)
+        function toggleCriteriaDropdown(type) {
+            const dropdown = document.getElementById(`${type}-dropdown`);
+            const btn = dropdown.previousElementSibling;
+            
+            dropdown.classList.toggle('hidden');
+            btn.classList.toggle('open');
+            
+            // Determine if dropdown should open upward or downward
+            if (!dropdown.classList.contains('hidden')) {
+                const rect = btn.getBoundingClientRect();
+                const dropdownHeight = 450; // max-height of dropdown
+                const spaceBelow = window.innerHeight - rect.bottom;
+                const spaceAbove = rect.top;
+                
+                // If not enough space below but more space above, open upward
+                if (spaceBelow < dropdownHeight && spaceAbove > spaceBelow) {
+                    dropdown.classList.add('dropup');
+                } else {
+                    dropdown.classList.remove('dropup');
+                }
+                
+                // Close dropdown when clicking outside
+                setTimeout(() => {
+                    const handler = (event) => {
+                        const selector = dropdown.parentElement;
+                        if (!selector.contains(event.target)) {
+                            dropdown.classList.add('hidden');
+                            dropdown.classList.remove('dropup');
+                            btn.classList.remove('open');
+                            document.removeEventListener('click', handler);
+                        }
+                    };
+                    document.addEventListener('click', handler);
+                }, 0);
+            } else {
+                dropdown.classList.remove('dropup');
+            }
+        }
+
+        // Toggle custom criteria input
+        function toggleCustomCriteria(type) {
+            const checkbox = document.getElementById(`${type}-custom-checkbox`);
+            const input = document.getElementById(`${type}-custom-input`);
+            
+            if (checkbox.checked) {
+                input.classList.remove('hidden');
+                input.focus();
+            } else {
+                input.classList.add('hidden');
+                input.value = '';
+            }
+            
+            updateCriteriaSelection(type);
+        }
+
+        // Update criteria selection display
+        function updateCriteriaSelection(type) {
+            const checkboxes = document.querySelectorAll(`.${type}-checkbox:checked`);
+            const customCheckbox = document.getElementById(`${type}-custom-checkbox`);
+            const customInput = document.getElementById(`${type}-custom-input`);
+            const hiddenTextarea = document.getElementById(type);
+            const displayText = document.getElementById(`${type}-selected-text`);
+            
+            let selectedValues = [];
+            
+            checkboxes.forEach(cb => {
+                if (cb.value === 'custom') {
+                    // Parse custom input (one per line)
+                    if (customInput.value.trim()) {
+                        const customLines = customInput.value.trim().split('\n').filter(line => line.trim());
+                        selectedValues.push(...customLines);
+                    }
+                } else {
+                    selectedValues.push(cb.value);
+                }
+            });
+            
+            if (selectedValues.length === 0) {
+                displayText.textContent = `Select ${type} criteria`;
+                displayText.style.color = '#999';
+                hiddenTextarea.value = '';
+            } else {
+                // Display summary (first 3 items + count)
+                if (selectedValues.length <= 3) {
+                    displayText.textContent = selectedValues.join('; ');
+                } else {
+                    const preview = selectedValues.slice(0, 3).join('; ');
+                    displayText.textContent = `${preview}... (${selectedValues.length} total)`;
+                }
+                displayText.style.color = '#333';
+                
+                // Set hidden textarea value (one per line)
+                hiddenTextarea.value = selectedValues.join('\n');
+            }
+        }
+
+        // Clear all criteria selections
+        function clearCriteriaSelection(type) {
+            const checkboxes = document.querySelectorAll(`.${type}-checkbox`);
+            checkboxes.forEach(cb => cb.checked = false);
+            
+            const customInput = document.getElementById(`${type}-custom-input`);
+            customInput.classList.add('hidden');
+            customInput.value = '';
+            
+            updateCriteriaSelection(type);
+        }
+
+        // Add secondary endpoint row
+        function addSecondaryEndpoint() {
+            const container = document.getElementById('secondary-endpoints-container');
+            const newIndex = secondaryEndpointCount++;
+            
+            const row = document.createElement('div');
+            row.className = 'secondary-endpoint-row';
+            row.innerHTML = `
+                <select class="secondary-endpoint-select" onchange="handleEndpointSelect('secondary', ${newIndex})" title="Select secondary endpoint">
+                    <option value="">-- Select or type custom --</option>
+                    <optgroup label="Safety">
+                        <option value="Incidence of adverse events">Incidence of adverse events</option>
+                        <option value="Incidence of serious adverse events">Incidence of serious adverse events</option>
+                        <option value="Treatment-emergent adverse events">Treatment-emergent adverse events</option>
+                        <option value="Laboratory abnormalities">Laboratory abnormalities</option>
+                    </optgroup>
+                    <optgroup label="Quality of Life">
+                        <option value="Change in SF-36 score">Change in SF-36 score</option>
+                        <option value="Change in EQ-5D score">Change in EQ-5D score</option>
+                        <option value="Patient Global Assessment">Patient Global Assessment</option>
+                        <option value="Change in FACIT-Fatigue score">Change in FACIT-Fatigue score</option>
+                    </optgroup>
+                    <optgroup label="Pharmacokinetics">
+                        <option value="Maximum plasma concentration (Cmax)">Maximum plasma concentration (Cmax)</option>
+                        <option value="Area under curve (AUC)">Area under curve (AUC)</option>
+                        <option value="Time to maximum concentration (Tmax)">Time to maximum concentration (Tmax)</option>
+                        <option value="Terminal half-life (t½)">Terminal half-life (t½)</option>
+                    </optgroup>
+                    <optgroup label="Biomarkers">
+                        <option value="Change in inflammatory markers (CRP, ESR)">Change in inflammatory markers (CRP, ESR)</option>
+                        <option value="Change in biomarker levels">Change in biomarker levels</option>
+                        <option value="Immunogenicity (anti-drug antibodies)">Immunogenicity (anti-drug antibodies)</option>
+                    </optgroup>
+                    <optgroup label="Functional Outcomes">
+                        <option value="Time to symptom resolution">Time to symptom resolution</option>
+                        <option value="Duration of response">Duration of response</option>
+                        <option value="Time to treatment failure">Time to treatment failure</option>
+                        <option value="Proportion remaining relapse-free">Proportion remaining relapse-free</option>
+                    </optgroup>
+                    <option value="custom">✏️ Custom (type below)</option>
+                </select>
+                <input type="text" class="secondary-endpoint-text hidden" placeholder="Type custom endpoint">
+                <button type="button" onclick="removeSecondaryEndpoint(${newIndex})" class="btn-small btn-danger">✖</button>
+            `;
+            
+            container.appendChild(row);
+        }
+
+        // Remove secondary endpoint row
+        function removeSecondaryEndpoint(index) {
+            const container = document.getElementById('secondary-endpoints-container');
+            const rows = container.querySelectorAll('.secondary-endpoint-row');
+            
+            if (rows.length > 1) {
+                rows[index].remove();
+            }
+        }
+
+        // Get all secondary endpoints
+        function getSecondaryEndpoints() {
+            const container = document.getElementById('secondary-endpoints-container');
+            const rows = container.querySelectorAll('.secondary-endpoint-row');
+            const endpoints = [];
+            
+            rows.forEach(row => {
+                const select = row.querySelector('.secondary-endpoint-select');
+                const input = row.querySelector('.secondary-endpoint-text');
+                
+                let value = '';
+                if (select.value === 'custom') {
+                    value = input.value.trim();
+                } else {
+                    value = select.value;
+                }
+                
+                if (value) {
+                    endpoints.push({
+                        type: "secondary",
+                        name: value,
+                        description: value,
+                        measurement_timepoint: `Week ${document.getElementById('duration').value || 'TBD'}`
+                    });
+                }
+            });
+            
+            return endpoints;
+        }
+
+        async function checkRAGStatus() {
+            try {
+                const response = await fetch(`${API_BASE}/api/v1/rag/stats`);
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('rag-status').textContent = 'Online';
+                    document.getElementById('rag-status').className = 'status-badge status-online';
+                    document.getElementById('rag-count').textContent = `(${data.total_examples} protocols)`;
+                } else {
+                    throw new Error('RAG not available');
+                }
+            } catch (error) {
+                document.getElementById('rag-status').textContent = 'Offline';
+                document.getElementById('rag-status').className = 'status-badge status-offline';
+            }
+        }
+
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        document.getElementById('protocol-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Show loading
+            document.getElementById('loading').classList.add('show');
+            document.getElementById('error').classList.remove('show');
+            document.getElementById('result').classList.remove('show');
+
+            // Build request
+            const inclusion = document.getElementById('inclusion').value
+                .split('\n')
+                .filter(line => line.trim())
+                .map(line => line.trim());
+            
+            const exclusion = document.getElementById('exclusion').value
+                .split('\n')
+                .filter(line => line.trim())
+                .map(line => line.trim());
+
+            // Get primary endpoint
+            const primarySelect = document.getElementById('primary-endpoint-select');
+            const primaryInput = document.getElementById('primary-endpoint');
+            let primaryEndpointValue = '';
+            
+            if (primarySelect.value === 'custom') {
+                primaryEndpointValue = primaryInput.value;
+            } else if (primarySelect.value) {
+                primaryEndpointValue = primarySelect.value;
+            } else {
+                primaryEndpointValue = primaryInput.value;
+            }
+
+            // Get indication
+            const indicationSelect = document.getElementById('indication-select');
+            const indicationInput = document.getElementById('indication');
+            let indicationValue = '';
+            
+            if (indicationSelect.value === 'custom') {
+                indicationValue = indicationInput.value;
+            } else if (indicationSelect.value) {
+                indicationValue = indicationSelect.value;
+            } else {
+                indicationValue = indicationInput.value;
+            }
+
+            // Build endpoints array (primary + secondary)
+            const allEndpoints = [
+                {
+                    type: "primary",
+                    name: primaryEndpointValue,
+                    description: primaryEndpointValue,
+                    measurement_timepoint: `Week ${document.getElementById('duration').value}`
+                }
+            ];
+            
+            // Add secondary endpoints
+            const secondaryEndpoints = getSecondaryEndpoints();
+            allEndpoints.push(...secondaryEndpoints);
+
+            const requestData = {
+                sponsor: document.getElementById('sponsor').value,
+                title: document.getElementById('title').value,
+                indication: indicationValue,
+                phase: document.getElementById('phase').value,
+                design: document.getElementById('design').value,
+                sample_size: parseInt(document.getElementById('sample_size').value),
+                duration_weeks: parseInt(document.getElementById('duration').value),
+                region: document.getElementById('region').value,
+                key_endpoints: allEndpoints,
+                inclusion_criteria: inclusion,
+                exclusion_criteria: exclusion,
+                additional_instructions: document.getElementById('additional-instructions').value || null
+            };
+
+            try {
+                const response = await fetch(`${API_BASE}/api/v1/generate`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestData)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                currentRequestId = data.request_id;
+
+                // Show results
+                document.getElementById('request-id').textContent = data.request_id;
+                document.getElementById('protocol-id').textContent = data.protocol_structured?.protocol_id || 'N/A';
+                document.getElementById('confidence').textContent = (data.overall_confidence * 100).toFixed(1) + '%';
+                document.getElementById('rag-retrieved').textContent = data.rag_protocols_used 
+                    ? `${data.rag_protocols_used} similar protocols` 
+                    : 'None';
+                
+                document.getElementById('loading').classList.remove('show');
+                document.getElementById('result').classList.add('show');
+
+            } catch (error) {
+                document.getElementById('loading').classList.remove('show');
+                document.getElementById('error').textContent = `Error: ${error.message}. Make sure the server is running at ${API_BASE}`;
+                document.getElementById('error').classList.add('show');
+            }
+        });
+
+        document.getElementById('search-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            document.getElementById('search-loading').classList.add('show');
+            document.getElementById('search-error').classList.remove('show');
+            document.getElementById('search-result').classList.remove('show');
+
+            const searchData = {
+                sponsor: "Search Query",
+                title: "Search",
+                indication: document.getElementById('search-indication').value || "General",
+                phase: document.getElementById('search-phase').value || "Phase 2",
+                design: "randomized",
+                sample_size: 100,
+                duration_weeks: 24,
+                key_endpoints: [],
+                inclusion_criteria: [],
+                exclusion_criteria: [],
+                region: "US"
+            };
+
+            try {
+                const n_results = document.getElementById('search-results').value;
+                const response = await fetch(`${API_BASE}/api/v1/rag/search?n_results=${n_results}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(searchData)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                let resultsHTML = `<p><strong>Found:</strong> ${data.found} similar protocol(s)</p>`;
+                
+                if (data.similar_protocols && data.similar_protocols.length > 0) {
+                    resultsHTML += '<div style="margin-top: 15px;">';
+                    data.similar_protocols.forEach((protocol, index) => {
+                        const similarity = ((protocol.similarity_score + 1) / 2 * 100).toFixed(1);
+                        resultsHTML += `
+                            <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #667eea;">
+                                <h4 style="color: #667eea; margin-bottom: 8px;">${index + 1}. ${protocol.metadata.indication}</h4>
+                                <p><strong>Phase:</strong> ${protocol.metadata.phase}</p>
+                                <p><strong>Similarity:</strong> ${similarity}%</p>
+                                <p><strong>Sample Size:</strong> ${protocol.metadata.sample_size} | <strong>Duration:</strong> ${protocol.metadata.duration_weeks} weeks</p>
+                                <p style="font-size: 0.9em; color: #666;"><strong>ID:</strong> ${protocol.rag_doc_id}</p>
+                            </div>
+                        `;
+                    });
+                    resultsHTML += '</div>';
+                } else {
+                    resultsHTML += '<p style="margin-top: 15px; color: #666;">No similar protocols found.</p>';
+                }
+
+                document.getElementById('search-results-content').innerHTML = resultsHTML;
+                document.getElementById('search-loading').classList.remove('show');
+                document.getElementById('search-result').classList.add('show');
+
+            } catch (error) {
+                document.getElementById('search-loading').classList.remove('show');
+                document.getElementById('search-error').textContent = `Error: ${error.message}`;
+                document.getElementById('search-error').classList.add('show');
+            }
+        });
+
+        async function downloadProtocol() {
+            if (!currentRequestId) return;
+            
+            try {
+                const response = await fetch(`${API_BASE}/api/v1/protocols/${currentRequestId}`);
+                const data = await response.json();
+                
+                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `protocol_${currentRequestId}.json`;
+                a.click();
+            } catch (error) {
+                alert('Error downloading protocol: ' + error.message);
+            }
+        }
+
+        async function exportODM() {
+            if (!currentRequestId) return;
+            
+            try {
+                const response = await fetch(`${API_BASE}/api/v1/export/odm`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ request_id: currentRequestId })
+                });
+                
+                const data = await response.json();
+                const blob = new Blob([data.odm_xml], { type: 'application/xml' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `protocol_${currentRequestId}_odm.xml`;
+                a.click();
+            } catch (error) {
+                alert('Error exporting ODM: ' + error.message);
+            }
+        }
+
+        async function exportFHIR() {
+            if (!currentRequestId) return;
+            
+            try {
+                const response = await fetch(`${API_BASE}/api/v1/export/fhir`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ request_id: currentRequestId })
+                });
+                
+                const data = await response.json();
+                const blob = new Blob([JSON.stringify(data.fhir_bundle, null, 2)], { type: 'application/json' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `protocol_${currentRequestId}_fhir.json`;
+                a.click();
+            } catch (error) {
+                alert('Error exporting FHIR: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

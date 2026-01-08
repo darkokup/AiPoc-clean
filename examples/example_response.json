@@ -1,0 +1,1083 @@
+{
+  "request_id": "REQ-51894A753D81",
+  "generated_at": "2025-11-12T20:52:40.112399",
+  "input_spec": {
+    "sponsor": "Acme Pharmaceutical Inc.",
+    "title": "A Phase II, Randomized, Double-Blind, Placebo-Controlled Study to Evaluate the Efficacy and Safety of ACM-1234 in Patients with Moderate to Severe Chronic Disease X",
+    "short_title": "ACM-1234 in Disease X",
+    "indication": "Moderate to Severe Chronic Disease X",
+    "phase": "Phase 2",
+    "design": "randomized, double-blind, placebo-controlled, parallel-group",
+    "sample_size": 120,
+    "duration_weeks": 24,
+    "treatment_arms": [
+      "ACM-1234 100mg once daily",
+      "ACM-1234 200mg once daily",
+      "Placebo once daily"
+    ],
+    "key_endpoints": [
+      {
+        "type": "primary",
+        "name": "Change from baseline in Disease Activity Score (DAS) at Week 24",
+        "description": "Mean change in DAS score from baseline to Week 24",
+        "measurement_timepoint": "Week 24",
+        "statistical_method": null
+      },
+      {
+        "type": "secondary",
+        "name": "Proportion of patients achieving clinical remission at Week 24",
+        "description": "Percentage of patients with DAS < 2.6 at Week 24",
+        "measurement_timepoint": "Week 24",
+        "statistical_method": null
+      },
+      {
+        "type": "secondary",
+        "name": "Incidence of treatment-emergent adverse events",
+        "description": "Safety and tolerability assessment",
+        "measurement_timepoint": "Throughout study",
+        "statistical_method": null
+      },
+      {
+        "type": "exploratory",
+        "name": "Change in quality of life scores",
+        "description": "Change in SF-36 scores from baseline",
+        "measurement_timepoint": "Week 12 and Week 24",
+        "statistical_method": null
+      }
+    ],
+    "inclusion_criteria": [
+      "Male or female patients aged 18-75 years",
+      "Confirmed diagnosis of Chronic Disease X for at least 6 months",
+      "Disease Activity Score (DAS) \u00e2\u2030\u00a5 3.2 at screening",
+      "Inadequate response to at least one conventional therapy",
+      "Stable concomitant medications for at least 4 weeks prior to screening",
+      "Willing and able to provide written informed consent"
+    ],
+    "exclusion_criteria": [
+      "Previous treatment with ACM-1234 or similar investigational products",
+      "Active or latent tuberculosis",
+      "History of severe allergic or anaphylactic reactions",
+      "Significant hepatic impairment (ALT/AST > 3x ULN)",
+      "Significant renal impairment (eGFR < 30 mL/min/1.73m\u00c2\u00b2)",
+      "Active malignancy within the past 5 years (except basal cell carcinoma)",
+      "Pregnancy or breastfeeding",
+      "Major surgery within 8 weeks prior to screening",
+      "Active infection requiring systemic antimicrobial therapy"
+    ],
+    "age_range": "18-75",
+    "region": "US/EU/Canada",
+    "number_of_sites": 25,
+    "background": "Chronic Disease X is a progressive inflammatory condition affecting millions of patients worldwide. Current therapeutic options provide inadequate disease control in a significant proportion of patients. ACM-1234 is a novel small molecule with a unique mechanism of action targeting key inflammatory pathways. Preclinical studies and Phase 1 data have demonstrated promising efficacy and a favorable safety profile. This Phase 2 study aims to establish proof-of-concept for ACM-1234 in patients with moderate to severe Chronic Disease X.",
+    "prior_therapy_allowed": true
+  },
+  "protocol_structured": {
+    "protocol_id": "PROT-E70BBB28",
+    "version": "1.0",
+    "generated_at": "2025-11-12T20:52:24.137402",
+    "sponsor": "Acme Pharmaceutical Inc.",
+    "title": "A Phase II, Randomized, Double-Blind, Placebo-Controlled Study to Evaluate the Efficacy and Safety of ACM-1234 in Patients with Moderate to Severe Chronic Disease X",
+    "short_title": "ACM-1234 in Disease X",
+    "phase": "Phase 2",
+    "indication": "Moderate to Severe Chronic Disease X",
+    "study_design": "This Phase 2, randomized, double-blind, placebo-controlled, parallel-group study aims to evaluate the efficacy and safety of ACM-1234 in patients with Moderate to Severe Chronic Disease X. A total of 120 participants will be randomized equally into three treatment arms: ACM-1234 100mg once daily, ACM-1234 200mg once daily, or placebo once daily, for a duration of 24 weeks. The primary efficacy endpoint will be the change from baseline in the Disease X Severity Index (DXSI), a validated composite score specific to Moderate to Severe Chronic Disease X, which includes parameters such as symptom frequency, functional impact, and biomarker levels associated with Disease X pathophysiology. Secondary endpoints include assessment of quality of life improvements using the Chronic Disease X Quality of Life Questionnaire (CDXQoL) and reduction in the use of rescue medication. Regular monitoring of potential adverse events, particularly those associated with Disease X flare-ups, will be conducted via bi-weekly clinical evaluations and patient diaries.",
+    "sample_size": 120,
+    "duration_weeks": 24,
+    "treatment_arms": [
+      "ACM-1234 100mg once daily",
+      "ACM-1234 200mg once daily",
+      "Placebo once daily"
+    ],
+    "objectives": {
+      "primary": "To evaluate the efficacy of ACM-1234 in improving clinical outcomes in patients with moderate to severe Chronic Disease X over a 12-week treatment period.",
+      "secondary": "To assess the safety and tolerability of ACM-1234 in patients with moderate to severe Chronic Disease X; To evaluate changes in quality of life as measured by the Chronic Disease X Quality of Life Questionnaire; To determine the pharmacokinetics of ACM-1234 in the study population."
+    },
+    "endpoints": [
+      {
+        "type": "primary",
+        "name": "Change from baseline in Disease Activity Score (DAS) at Week 24",
+        "description": "The primary endpoint is the change from baseline in the Disease Activity Score (DAS) at Week 24, which will be assessed using the standardized DAS measurement tool to quantify disease activity in patients with moderate to severe Chronic Disease X. This endpoint is clinically relevant as it evaluates the efficacy of the intervention in reducing disease activity over a 24-week period, providing insights into the potential therapeutic benefits for patients.",
+        "timepoint": "Week 24"
+      },
+      {
+        "type": "secondary",
+        "name": "Proportion of patients achieving clinical remission at Week 24",
+        "description": "The secondary endpoint is the proportion of patients achieving clinical remission of Moderate to Severe Chronic Disease X at Week 24, assessed through a validated disease-specific scoring system that defines clinical remission as a score below a predetermined threshold, indicating significant disease improvement and reduced symptom burden, which is clinically relevant for enhancing patient quality of life.",
+        "timepoint": "Week 24"
+      },
+      {
+        "type": "secondary",
+        "name": "Incidence of treatment-emergent adverse events",
+        "description": "The incidence of treatment-emergent adverse events will be measured by recording and categorizing all adverse events that arise following the initiation of the study drug in participants with moderate to severe Chronic Disease X, as assessed by clinical evaluations and patient self-reports throughout the study duration. This endpoint is clinically relevant as it provides critical safety information, enabling the assessment of the risk-benefit profile of the treatment in this patient population.",
+        "timepoint": "Throughout study"
+      },
+      {
+        "type": "exploratory",
+        "name": "Change in quality of life scores",
+        "description": "Change in quality of life scores will be measured using the validated Disease X Quality of Life Questionnaire at baseline, Week 12, and Week 24 to assess the potential impact of the intervention on patients' overall well-being and daily functioning, providing insights into the broader benefits of treatment beyond clinical symptoms.",
+        "timepoint": "Week 12 and Week 24"
+      }
+    ],
+    "inclusion_criteria": [
+      "Adults aged 18-65 years at the time of consent.",
+      "Confirmed diagnosis of Moderate to Severe Chronic Disease X as per the criteria established by the latest guidelines.",
+      "Patients must have a disease severity score of \u226550 on the Disease X Assessment Scale (DXAS) at screening.",
+      "Stable disease treatment regimen for at least 12 weeks prior to randomization, with no changes anticipated during the trial.",
+      "Ability to provide written informed consent and comply with study procedures.",
+      "Body Mass Index (BMI) between 18.5 and 35 kg/m\u00b2 at screening.",
+      "Female participants of childbearing potential must have a negative pregnancy test at screening and agree to use an effective method of contraception throughout the study.",
+      "Participants must have a stable renal function, defined as an estimated glomerular filtration rate (eGFR) of \u226560 mL/min/1.73 m\u00b2 at screening.",
+      "Participants must have liver function tests (AST, ALT, and bilirubin) within 1.5 times the upper limit of normal at screening."
+    ],
+    "exclusion_criteria": [
+      "Current participation in another clinical trial or investigational drug study within the last 30 days.",
+      "History of allergic reactions to the investigational drug or its components.",
+      "Presence of any severe or uncontrolled medical condition that could interfere with study participation or study outcomes.",
+      "Pregnancy or breastfeeding during the study period.",
+      "Known history of substance abuse or dependency within the past 12 months.",
+      "Use of immunosuppressive therapy within the last 6 months, except for corticosteroids at physiologic doses.",
+      "Active infection requiring systemic treatment within the past 14 days.",
+      "Diagnosis of any other chronic disease that could interfere with the assessment of the study drug's safety or efficacy."
+    ],
+    "visit_schedule": [
+      {
+        "visit_id": "V0",
+        "visit_name": "Screening",
+        "week": -1,
+        "window": "\u00b13 days"
+      },
+      {
+        "visit_id": "V1",
+        "visit_name": "Baseline",
+        "week": 0,
+        "window": "Day 1"
+      },
+      {
+        "visit_id": "V2",
+        "visit_name": "Week 4",
+        "week": 4,
+        "window": "\u00b17 days"
+      },
+      {
+        "visit_id": "V3",
+        "visit_name": "Week 8",
+        "week": 8,
+        "window": "\u00b17 days"
+      },
+      {
+        "visit_id": "V4",
+        "visit_name": "Week 12",
+        "week": 12,
+        "window": "\u00b17 days"
+      },
+      {
+        "visit_id": "V5",
+        "visit_name": "Week 16",
+        "week": 16,
+        "window": "\u00b17 days"
+      },
+      {
+        "visit_id": "V6",
+        "visit_name": "Week 20",
+        "week": 20,
+        "window": "\u00b17 days"
+      },
+      {
+        "visit_id": "V7",
+        "visit_name": "Week 24",
+        "week": 24,
+        "window": "\u00b17 days"
+      }
+    ],
+    "assessments": [
+      {
+        "assessment_id": "DEMO",
+        "name": "Demographics",
+        "description": "Participant demographics",
+        "timing": [
+          "Screening"
+        ]
+      },
+      {
+        "assessment_id": "VITALS",
+        "name": "Vital Signs",
+        "description": "Measurement of blood pressure, heart rate, respiratory rate, and temperature",
+        "timing": [
+          "Screening",
+          "Baseline",
+          "Week 4",
+          "Week 8",
+          "Week 12",
+          "Week 16",
+          "Week 20",
+          "Week 24"
+        ]
+      },
+      {
+        "assessment_id": "AE",
+        "name": "Adverse Events",
+        "description": "Monitoring of adverse events",
+        "timing": [
+          "Baseline",
+          "Week 4",
+          "Week 8",
+          "Week 12",
+          "Week 16",
+          "Week 20",
+          "Week 24"
+        ]
+      },
+      {
+        "assessment_id": "LABS",
+        "name": "Laboratory Tests",
+        "description": "Routine blood and urine tests",
+        "timing": [
+          "Screening",
+          "Baseline",
+          "Week 8",
+          "Week 16",
+          "Week 24"
+        ]
+      },
+      {
+        "assessment_id": "DISEASE_SPECIFIC_1",
+        "name": "Disease Activity Score",
+        "description": "Assessment of disease activity using a standardized scoring system specific to Chronic Disease X",
+        "timing": [
+          "Baseline",
+          "Week 4",
+          "Week 8",
+          "Week 12",
+          "Week 16",
+          "Week 20",
+          "Week 24"
+        ]
+      },
+      {
+        "assessment_id": "DISEASE_SPECIFIC_2",
+        "name": "Quality of Life Questionnaire",
+        "description": "Patient-reported outcomes measuring quality of life related to Chronic Disease X",
+        "timing": [
+          "Baseline",
+          "Week 12",
+          "Week 24"
+        ]
+      },
+      {
+        "assessment_id": "DISEASE_SPECIFIC_3",
+        "name": "Functional Capacity Test",
+        "description": "Assessment of physical function and capacity related to Chronic Disease X",
+        "timing": [
+          "Baseline",
+          "Week 8",
+          "Week 16",
+          "Week 24"
+        ]
+      }
+    ],
+    "statistical_plan": {
+      "sample_size": 120,
+      "power": 0.8,
+      "alpha": 0.05,
+      "analysis_populations": [
+        "ITT",
+        "Per Protocol",
+        "Safety"
+      ],
+      "primary_analysis": "ANCOVA adjusting for baseline"
+    },
+    "safety_monitoring": {
+      "ae_reporting": "CTCAE v5.0",
+      "dsmb": true,
+      "interim_analyses": [
+        "25%",
+        "50%",
+        "75%"
+      ]
+    },
+    "sections": [
+      {
+        "section_id": "1.0",
+        "title": "Synopsis",
+        "content": "\nStudy Synopsis\n\nTitle: A Phase II, Randomized, Double-Blind, Placebo-Controlled Study to Evaluate the Efficacy and Safety of ACM-1234 in Patients with Moderate to Severe Chronic Disease X\nSponsor: Acme Pharmaceutical Inc.\nPhase: Phase 2\nIndication: Moderate to Severe Chronic Disease X\n\nStudy Design: This is a randomized, double-blind, placebo-controlled, parallel-group study evaluating Moderate to Severe Chronic Disease X.\nSample Size: Approximately 120 participants will be enrolled.\nStudy Duration: 24 weeks.\n",
+        "confidence_score": 1.0,
+        "provenance": "template_with_user_input"
+      },
+      {
+        "section_id": "2.0",
+        "title": "Study Objectives",
+        "content": "Primary Objective:\nTo evaluate the efficacy of ACM-1234 in improving clinical outcomes in patients with moderate to severe Chronic Disease X over a 12-week treatment period.\n\nSecondary Objectives:\nTo assess the safety and tolerability of ACM-1234 in patients with moderate to severe Chronic Disease X; To evaluate changes in quality of life as measured by the Chronic Disease X Quality of Life Questionnaire; To determine the pharmacokinetics of ACM-1234 in the study population.",
+        "confidence_score": 0.95,
+        "provenance": "llm_generated"
+      }
+    ],
+    "generation_method": "llm_enhanced",
+    "rag_protocols_used": 3,
+    "rag_avg_similarity": 0.20840630928675333,
+    "llm_enhanced_sections": [
+      "objectives",
+      "inclusion_criteria",
+      "exclusion_criteria",
+      "study_design",
+      "endpoints",
+      "visit_schedule",
+      "assessments"
+    ]
+  },
+  "protocol_text": "<!-- RAG Context: Found 2 similar protocol(s) -->\nCLINICAL TRIAL PROTOCOL\n\nA Phase II, Randomized, Double-Blind, Placebo-Controlled Study to Evaluate the Efficacy and Safety of ACM-1234 in Patients with Moderate to Severe Chronic Disease X\n\nProtocol Version: 1.0\nSponsor: Acme Pharmaceutical Inc.\nDate: 2025-11-12\n\n\nREFERENCE CONTEXT FROM SIMILAR PROTOCOLS:\n\n\nSimilar Protocol 1 (Similarity: 23.2%):\n- Phase: Phase 2\n- Indication: Rheumatoid Arthritis\n- Design: randomized parallel trial\n- Sample Size: 100\n- Duration: 52 weeks\n\nSimilar Protocol 2 (Similarity: 19.9%):\n- Phase: Phase 2\n- Indication: Psoriasis\n- Design: randomized parallel trial\n- Sample Size: 100\n- Duration: 52 weeks\n\n============================================================\n\n\n\nStudy Synopsis\n\nTitle: A Phase II, Randomized, Double-Blind, Placebo-Controlled Study to Evaluate the Efficacy and Safety of ACM-1234 in Patients with Moderate to Severe Chronic Disease X\nSponsor: Acme Pharmaceutical Inc.\nPhase: Phase 2\nIndication: Moderate to Severe Chronic Disease X\n\nStudy Design: This is a randomized, double-blind, placebo-controlled, parallel-group study evaluating Moderate to Severe Chronic Disease X.\nSample Size: Approximately 120 participants will be enrolled.\nStudy Duration: 24 weeks.\n\nChronic Disease X is a progressive inflammatory condition affecting millions of patients worldwide. Current therapeutic options provide inadequate disease control in a significant proportion of patients. ACM-1234 is a novel small molecule with a unique mechanism of action targeting key inflammatory pathways. Preclinical studies and Phase 1 data have demonstrated promising efficacy and a favorable safety profile. This Phase 2 study aims to establish proof-of-concept for ACM-1234 in patients with moderate to severe Chronic Disease X.\n\nStudy Objectives and Endpoints\n\n\nPrimary Objective:\nTo evaluate the efficacy of the study intervention in patients with Moderate to Severe Chronic Disease X.\n\n\nEndpoints:\n- PRIMARY: Change from baseline in Disease Activity Score (DAS) at Week 24\n- SECONDARY: Proportion of patients achieving clinical remission at Week 24\n- SECONDARY: Incidence of treatment-emergent adverse events\n- EXPLORATORY: Change in quality of life scores\n\n\nStudy Design\n\nThis is a randomized, double-blind, placebo-controlled, parallel-group study.\n\nTreatment Arms:\n  1. ACM-1234 100mg once daily\n  2. ACM-1234 200mg once daily\n  3. Placebo once daily\n\n\nStudy Population\n\nTarget enrollment: 120 participants\nAge range: 18-75\n\nInclusion Criteria:\n  1. Male or female patients aged 18-75 years\n  2. Confirmed diagnosis of Chronic Disease X for at least 6 months\n  3. Disease Activity Score (DAS) \u00e2\u2030\u00a5 3.2 at screening\n  4. Inadequate response to at least one conventional therapy\n  5. Stable concomitant medications for at least 4 weeks prior to screening\n  6. Willing and able to provide written informed consent\n\nExclusion Criteria:\n  1. Previous treatment with ACM-1234 or similar investigational products\n  2. Active or latent tuberculosis\n  3. History of severe allergic or anaphylactic reactions\n  4. Significant hepatic impairment (ALT/AST > 3x ULN)\n  5. Significant renal impairment (eGFR < 30 mL/min/1.73m\u00c2\u00b2)\n  6. Active malignancy within the past 5 years (except basal cell carcinoma)\n  7. Pregnancy or breastfeeding\n  8. Major surgery within 8 weeks prior to screening\n  9. Active infection requiring systemic antimicrobial therapy\n\n\nStudy Duration and Schedule\n\nTotal study duration: 24 weeks per participant\n\n\nStatistical Considerations\n\nSample Size: 120 participants\nStatistical analysis will be performed on the intent-to-treat (ITT) population.\n\n\nSafety Monitoring\n\nAdverse events will be monitored throughout the study and graded according to CTCAE v5.0.\nA Data Safety Monitoring Board (DSMB) will review safety data periodically.",
+  "crf_schema": {
+    "study_id": "PROT-E70BBB28",
+    "version": "1.0",
+    "generated_at": "2025-11-12T20:52:40.112399",
+    "forms": [
+      {
+        "form_id": "DM",
+        "form_name": "Demographics",
+        "form_description": "Subject demographics and baseline characteristics",
+        "fields": [
+          {
+            "field_id": "SUBJID",
+            "field_name": "subject_id",
+            "field_label": "Subject ID",
+            "data_type": "text",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": "SUBJID",
+            "sdtm_variable": "USUBJID"
+          },
+          {
+            "field_id": "AGE",
+            "field_name": "age",
+            "field_label": "Age (years)",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": {
+              "min": 0,
+              "max": 120
+            },
+            "controlled_vocabulary": null,
+            "cdash_variable": "AGE",
+            "sdtm_variable": "AGE"
+          },
+          {
+            "field_id": "SEX",
+            "field_name": "sex",
+            "field_label": "Sex",
+            "data_type": "radio",
+            "required": true,
+            "validation_rules": {
+              "options": [
+                "Male",
+                "Female",
+                "Other"
+              ]
+            },
+            "controlled_vocabulary": null,
+            "cdash_variable": "SEX",
+            "sdtm_variable": "SEX"
+          },
+          {
+            "field_id": "RACE",
+            "field_name": "race",
+            "field_label": "Race",
+            "data_type": "dropdown",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": "CDASH_RACE",
+            "cdash_variable": "RACE",
+            "sdtm_variable": "RACE"
+          }
+        ],
+        "repeating": false
+      },
+      {
+        "form_id": "VS",
+        "form_name": "Vital Signs",
+        "form_description": "Vital signs assessment",
+        "fields": [
+          {
+            "field_id": "VS_DATE",
+            "field_name": "assessment_date",
+            "field_label": "Assessment Date",
+            "data_type": "date",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": "VSDTC",
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "SYSBP",
+            "field_name": "systolic_bp",
+            "field_label": "Systolic Blood Pressure (mmHg)",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": {
+              "min": 50,
+              "max": 250
+            },
+            "controlled_vocabulary": null,
+            "cdash_variable": "VSORRES",
+            "sdtm_variable": "VSSTRESN"
+          },
+          {
+            "field_id": "DIABP",
+            "field_name": "diastolic_bp",
+            "field_label": "Diastolic Blood Pressure (mmHg)",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": {
+              "min": 30,
+              "max": 150
+            },
+            "controlled_vocabulary": null,
+            "cdash_variable": "VSORRES",
+            "sdtm_variable": "VSSTRESN"
+          },
+          {
+            "field_id": "HR",
+            "field_name": "heart_rate",
+            "field_label": "Heart Rate (bpm)",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": {
+              "min": 30,
+              "max": 200
+            },
+            "controlled_vocabulary": null,
+            "cdash_variable": "VSORRES",
+            "sdtm_variable": "VSSTRESN"
+          },
+          {
+            "field_id": "TEMP",
+            "field_name": "temperature",
+            "field_label": "Temperature (\u00b0C)",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": {
+              "min": 35.0,
+              "max": 42.0
+            },
+            "controlled_vocabulary": null,
+            "cdash_variable": "VSORRES",
+            "sdtm_variable": "VSSTRESN"
+          }
+        ],
+        "repeating": false
+      },
+      {
+        "form_id": "AE",
+        "form_name": "Adverse Events",
+        "form_description": "Adverse event reporting",
+        "fields": [
+          {
+            "field_id": "AE_TERM",
+            "field_name": "ae_term",
+            "field_label": "Adverse Event Term",
+            "data_type": "text",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": "AETERM",
+            "sdtm_variable": "AETERM"
+          },
+          {
+            "field_id": "AE_START",
+            "field_name": "ae_start_date",
+            "field_label": "Start Date",
+            "data_type": "date",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": "AESTDTC",
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "AE_SEV",
+            "field_name": "severity",
+            "field_label": "Severity",
+            "data_type": "dropdown",
+            "required": true,
+            "validation_rules": {
+              "options": [
+                "Mild",
+                "Moderate",
+                "Severe"
+              ]
+            },
+            "controlled_vocabulary": null,
+            "cdash_variable": "AESEV",
+            "sdtm_variable": "AESEV"
+          },
+          {
+            "field_id": "AE_REL",
+            "field_name": "relationship",
+            "field_label": "Relationship to Study Drug",
+            "data_type": "dropdown",
+            "required": true,
+            "validation_rules": {
+              "options": [
+                "Not Related",
+                "Unlikely",
+                "Possible",
+                "Probable",
+                "Definite"
+              ]
+            },
+            "controlled_vocabulary": null,
+            "cdash_variable": "AEREL",
+            "sdtm_variable": "AEREL"
+          }
+        ],
+        "repeating": true
+      },
+      {
+        "form_id": "EFF",
+        "form_name": "Efficacy Assessment",
+        "form_description": "Clinical efficacy score assessment",
+        "fields": [
+          {
+            "field_id": "SCORE_DATE",
+            "field_name": "assessment_date",
+            "field_label": "Assessment Date",
+            "data_type": "date",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "TOTAL_SCORE",
+            "field_name": "total_score",
+            "field_label": "Total Score",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": {
+              "min": 0,
+              "max": 100
+            },
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          }
+        ],
+        "repeating": false
+      },
+      {
+        "form_id": "VITALS",
+        "form_name": "Vital Signs",
+        "form_description": "Measurement of blood pressure, heart rate, respiratory rate, and temperature",
+        "fields": [
+          {
+            "field_id": "BP_SYS",
+            "field_name": "systolic_bp",
+            "field_label": "Systolic Blood Pressure (mmHg)",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "BP_DIA",
+            "field_name": "diastolic_bp",
+            "field_label": "Diastolic Blood Pressure (mmHg)",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "HEART_RATE",
+            "field_name": "heart_rate",
+            "field_label": "Heart Rate (bpm)",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "RESP_RATE",
+            "field_name": "respiratory_rate",
+            "field_label": "Respiratory Rate (breaths/min)",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "TEMP",
+            "field_name": "body_temperature",
+            "field_label": "Body Temperature (\u00b0C)",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          }
+        ],
+        "repeating": true
+      },
+      {
+        "form_id": "LABS",
+        "form_name": "Laboratory Tests",
+        "form_description": "Routine blood and urine tests",
+        "fields": [
+          {
+            "field_id": "LAB_TEST_NAME",
+            "field_name": "test_name",
+            "field_label": "Test Name",
+            "data_type": "dropdown",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "RESULT_VALUE",
+            "field_name": "result_value",
+            "field_label": "Result Value",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "UNITS",
+            "field_name": "units",
+            "field_label": "Units",
+            "data_type": "text",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "NORMAL_RANGE",
+            "field_name": "normal_range",
+            "field_label": "Normal Range",
+            "data_type": "text",
+            "required": false,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "COLLECTION_DATE",
+            "field_name": "collection_date",
+            "field_label": "Collection Date",
+            "data_type": "date",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "SPECIMEN_TYPE",
+            "field_name": "specimen_type",
+            "field_label": "Specimen Type",
+            "data_type": "dropdown",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          }
+        ],
+        "repeating": true
+      },
+      {
+        "form_id": "DISEASE_SPECIFIC_1",
+        "form_name": "Disease Activity Score",
+        "form_description": "Assessment of disease activity using a standardized scoring system specific to Chronic Disease X",
+        "fields": [
+          {
+            "field_id": "DAS_TOTAL",
+            "field_name": "disease_activity_score_total",
+            "field_label": "Total Disease Activity Score",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "DAS_PAIN",
+            "field_name": "pain_score",
+            "field_label": "Pain Score",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "DAS_SWELLING",
+            "field_name": "swelling_score",
+            "field_label": "Swelling Score",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "DAS_FUNCTION",
+            "field_name": "functional_impairment_score",
+            "field_label": "Functional Impairment Score",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "DAS_INFLAM",
+            "field_name": "inflammation_marker_level",
+            "field_label": "Inflammation Marker Level",
+            "data_type": "number",
+            "required": false,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "DAS_DATE",
+            "field_name": "assessment_date",
+            "field_label": "Assessment Date",
+            "data_type": "date",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          }
+        ],
+        "repeating": true
+      },
+      {
+        "form_id": "DISEASE_SPECIFIC_2",
+        "form_name": "Quality of Life Questionnaire",
+        "form_description": "Patient-reported outcomes measuring quality of life related to Chronic Disease X",
+        "fields": [
+          {
+            "field_id": "QOL_OVERALL",
+            "field_name": "overall_quality_of_life",
+            "field_label": "Overall Quality of Life",
+            "data_type": "dropdown",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "QOL_PHYSICAL",
+            "field_name": "physical_health",
+            "field_label": "Physical Health Impact",
+            "data_type": "dropdown",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "QOL_MENTAL",
+            "field_name": "mental_health",
+            "field_label": "Mental Health Impact",
+            "data_type": "dropdown",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "QOL_SOCIAL",
+            "field_name": "social_functioning",
+            "field_label": "Social Functioning Impact",
+            "data_type": "dropdown",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "QOL_PAIN",
+            "field_name": "pain_level",
+            "field_label": "Pain Level",
+            "data_type": "dropdown",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "QOL_FATIGUE",
+            "field_name": "fatigue_level",
+            "field_label": "Fatigue Level",
+            "data_type": "dropdown",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          }
+        ],
+        "repeating": true
+      },
+      {
+        "form_id": "DISEASE_SPECIFIC_3",
+        "form_name": "Functional Capacity Test",
+        "form_description": "Assessment of physical function and capacity related to Chronic Disease X",
+        "fields": [
+          {
+            "field_id": "FCT_DATE",
+            "field_name": "assessment_date",
+            "field_label": "Assessment Date",
+            "data_type": "date",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "FCT_DURATION",
+            "field_name": "test_duration",
+            "field_label": "Test Duration (minutes)",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "FCT_DISTANCE",
+            "field_name": "distance_covered",
+            "field_label": "Distance Covered (meters)",
+            "data_type": "number",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "FCT_SYMPTOMS",
+            "field_name": "symptoms_observed",
+            "field_label": "Symptoms Observed During Test",
+            "data_type": "text",
+            "required": false,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          },
+          {
+            "field_id": "FCT_PERFORMANCE",
+            "field_name": "performance_rating",
+            "field_label": "Performance Rating",
+            "data_type": "dropdown",
+            "required": true,
+            "validation_rules": null,
+            "controlled_vocabulary": null,
+            "cdash_variable": null,
+            "sdtm_variable": null
+          }
+        ],
+        "repeating": true
+      }
+    ],
+    "visits": [
+      {
+        "visit_id": "V0",
+        "visit_name": "Screening",
+        "visit_number": 1,
+        "timepoint": "Screening",
+        "window": "\u00b13 days",
+        "forms": [
+          "DM",
+          "VS",
+          "AE"
+        ]
+      },
+      {
+        "visit_id": "V1",
+        "visit_name": "Baseline",
+        "visit_number": 2,
+        "timepoint": "Week 0",
+        "window": "Day 1",
+        "forms": [
+          "VS",
+          "AE",
+          "EFF"
+        ]
+      },
+      {
+        "visit_id": "V2",
+        "visit_name": "Week 4",
+        "visit_number": 3,
+        "timepoint": "Week 4",
+        "window": "\u00b17 days",
+        "forms": [
+          "VS",
+          "AE",
+          "EFF"
+        ]
+      },
+      {
+        "visit_id": "V3",
+        "visit_name": "Week 8",
+        "visit_number": 4,
+        "timepoint": "Week 8",
+        "window": "\u00b17 days",
+        "forms": [
+          "VS",
+          "AE",
+          "EFF"
+        ]
+      },
+      {
+        "visit_id": "V4",
+        "visit_name": "Week 12",
+        "visit_number": 5,
+        "timepoint": "Week 12",
+        "window": "\u00b17 days",
+        "forms": [
+          "VS",
+          "AE",
+          "EFF"
+        ]
+      },
+      {
+        "visit_id": "V5",
+        "visit_name": "Week 16",
+        "visit_number": 6,
+        "timepoint": "Week 16",
+        "window": "\u00b17 days",
+        "forms": [
+          "VS",
+          "AE",
+          "EFF"
+        ]
+      },
+      {
+        "visit_id": "V6",
+        "visit_name": "Week 20",
+        "visit_number": 7,
+        "timepoint": "Week 20",
+        "window": "\u00b17 days",
+        "forms": [
+          "VS",
+          "AE",
+          "EFF"
+        ]
+      },
+      {
+        "visit_id": "V7",
+        "visit_name": "Week 24",
+        "visit_number": 8,
+        "timepoint": "Week 24",
+        "window": "\u00b17 days",
+        "forms": [
+          "VS",
+          "AE",
+          "EFF"
+        ]
+      }
+    ],
+    "cdash_compliance": true,
+    "sdtm_mappings": {
+      "SUBJID": "usubjid",
+      "VISITNUM": "visitnum",
+      "VISIT": "visit"
+    }
+  },
+  "overall_confidence": 0.7508625237147014,
+  "validation_status": "warnings",
+  "validation_messages": [
+    "Field SCORE_DATE in form EFF missing CDASH variable mapping",
+    "Field TOTAL_SCORE in form EFF missing CDASH variable mapping",
+    "Field BP_SYS in form VITALS missing CDASH variable mapping",
+    "Field BP_DIA in form VITALS missing CDASH variable mapping",
+    "Field HEART_RATE in form VITALS missing CDASH variable mapping",
+    "Field RESP_RATE in form VITALS missing CDASH variable mapping",
+    "Field TEMP in form VITALS missing CDASH variable mapping",
+    "Field LAB_TEST_NAME in form LABS missing CDASH variable mapping",
+    "Field RESULT_VALUE in form LABS missing CDASH variable mapping",
+    "Field UNITS in form LABS missing CDASH variable mapping",
+    "Field NORMAL_RANGE in form LABS missing CDASH variable mapping",
+    "Field COLLECTION_DATE in form LABS missing CDASH variable mapping",
+    "Field SPECIMEN_TYPE in form LABS missing CDASH variable mapping",
+    "Field DAS_TOTAL in form DISEASE_SPECIFIC_1 missing CDASH variable mapping",
+    "Field DAS_PAIN in form DISEASE_SPECIFIC_1 missing CDASH variable mapping",
+    "Field DAS_SWELLING in form DISEASE_SPECIFIC_1 missing CDASH variable mapping",
+    "Field DAS_FUNCTION in form DISEASE_SPECIFIC_1 missing CDASH variable mapping",
+    "Field DAS_INFLAM in form DISEASE_SPECIFIC_1 missing CDASH variable mapping",
+    "Field DAS_DATE in form DISEASE_SPECIFIC_1 missing CDASH variable mapping",
+    "Field QOL_OVERALL in form DISEASE_SPECIFIC_2 missing CDASH variable mapping",
+    "Field QOL_PHYSICAL in form DISEASE_SPECIFIC_2 missing CDASH variable mapping",
+    "Field QOL_MENTAL in form DISEASE_SPECIFIC_2 missing CDASH variable mapping",
+    "Field QOL_SOCIAL in form DISEASE_SPECIFIC_2 missing CDASH variable mapping",
+    "Field QOL_PAIN in form DISEASE_SPECIFIC_2 missing CDASH variable mapping",
+    "Field QOL_FATIGUE in form DISEASE_SPECIFIC_2 missing CDASH variable mapping",
+    "Field FCT_DATE in form DISEASE_SPECIFIC_3 missing CDASH variable mapping",
+    "Field FCT_DURATION in form DISEASE_SPECIFIC_3 missing CDASH variable mapping",
+    "Field FCT_DISTANCE in form DISEASE_SPECIFIC_3 missing CDASH variable mapping",
+    "Field FCT_SYMPTOMS in form DISEASE_SPECIFIC_3 missing CDASH variable mapping",
+    "Field FCT_PERFORMANCE in form DISEASE_SPECIFIC_3 missing CDASH variable mapping",
+    "Numeric field BP_SYS in VITALS should have validation rules (min/max)",
+    "Numeric field BP_DIA in VITALS should have validation rules (min/max)",
+    "Numeric field HEART_RATE in VITALS should have validation rules (min/max)",
+    "Numeric field RESP_RATE in VITALS should have validation rules (min/max)",
+    "Numeric field TEMP in VITALS should have validation rules (min/max)",
+    "Numeric field RESULT_VALUE in LABS should have validation rules (min/max)",
+    "Numeric field DAS_TOTAL in DISEASE_SPECIFIC_1 should have validation rules (min/max)",
+    "Numeric field DAS_PAIN in DISEASE_SPECIFIC_1 should have validation rules (min/max)",
+    "Numeric field DAS_SWELLING in DISEASE_SPECIFIC_1 should have validation rules (min/max)",
+    "Numeric field DAS_FUNCTION in DISEASE_SPECIFIC_1 should have validation rules (min/max)",
+    "Numeric field DAS_INFLAM in DISEASE_SPECIFIC_1 should have validation rules (min/max)",
+    "Numeric field FCT_DURATION in DISEASE_SPECIFIC_3 should have validation rules (min/max)",
+    "Numeric field FCT_DISTANCE in DISEASE_SPECIFIC_3 should have validation rules (min/max)"
+  ],
+  "generation_method": "llm_enhanced",
+  "templates_used": [
+    "standard_protocol_v1",
+    "cdash_crf_v1"
+  ],
+  "rag_protocols_used": 3,
+  "llm_sections": [
+    "objectives",
+    "inclusion_criteria",
+    "exclusion_criteria",
+    "study_design",
+    "endpoints",
+    "visit_schedule",
+    "assessments"
+  ]
+}

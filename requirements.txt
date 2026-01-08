@@ -1,0 +1,44 @@
+# Core API Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Data Processing & Validation
+python-multipart==0.0.6
+jinja2==3.1.3
+lxml==5.1.0
+
+# ML/NLP Dependencies
+transformers==4.36.2
+tensorflow==2.15.0
+torch==2.1.2
+sentence-transformers==2.3.1
+numpy<2.0.0  # Required for ChromaDB compatibility
+
+# Vector DB for RAG (optional - using in-memory for PoC)
+chromadb==0.4.22
+
+# LLM Integration (optional - for AI-enhanced generation)
+openai==1.54.0
+
+# Database & Storage
+sqlalchemy==2.0.25
+psycopg2-binary==2.9.9
+alembic==1.13.1
+
+# Utilities
+python-dotenv==1.0.0
+httpx==0.26.0
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# Standards & Vocabularies
+pydicom==2.4.4
+fhir.resources==7.1.0
+
+# Testing & Development
+pytest==7.4.4
+pytest-asyncio==0.23.3
+black==24.1.1
+flake8==7.0.0

@@ -1,0 +1,42 @@
+{
+  "sponsor": "Global Cancer Research Network",
+  "title": "A Phase II Study of Immunotherapy in Elderly Patients with Advanced Non-Small Cell Lung Cancer",
+  "indication": "Non-Small Cell Lung Cancer",
+  "phase": "PHASE_II",
+  "design": "Single-arm, open-label",
+  "sample_size": 75,
+  "duration_weeks": 52,
+  "region": "North America and Europe",
+  "key_endpoints": [
+    {
+      "type": "primary",
+      "name": "Objective Response Rate",
+      "description": "Proportion of patients achieving complete or partial response per RECIST 1.1",
+      "measurement_timepoint": "Every 9 weeks"
+    },
+    {
+      "type": "secondary",
+      "name": "Patient-Reported Outcomes",
+      "description": "Quality of life assessed using PRO-CTCAE",
+      "measurement_timepoint": "Every visit"
+    },
+    {
+      "type": "secondary",
+      "name": "Geriatric Assessment",
+      "description": "Functional status and frailty assessment",
+      "measurement_timepoint": "Baseline and every 12 weeks"
+    }
+  ],
+  "inclusion_criteria": [
+    "Adults age 65 years and older",
+    "Histologically confirmed NSCLC",
+    "Measurable disease per RECIST 1.1",
+    "ECOG performance status 0-2"
+  ],
+  "exclusion_criteria": [
+    "Active brain metastases",
+    "Prior immunotherapy treatment",
+    "Severe cardiac disease"
+  ],
+  "additional_instructions": "STUDY POPULATION & SAFETY:\n- Require COVID-19 vaccination or recent negative PCR test\n- Include telemedicine visits for patients unable to travel\n- Allow home nursing visits for frail elderly patients\n- Screen for geriatric syndromes (falls, cognitive impairment, polypharmacy)\n\nBIOMARKERS & DIAGNOSTICS:\n- Mandatory PD-L1 biomarker testing with TPS threshold ≥50%\n- Include ctDNA blood testing for molecular response monitoring\n- Perform baseline and serial tumor genomic profiling\n\nASSESSMENTS:\n- Use virtual tumor board for complex response assessments\n- Include geriatric assessment tools: G8 screening, Charlson Comorbidity Index, ADL/IADL\n- Add patient-reported outcomes (PRO-CTCAE) at every visit\n- Monitor for immune-related adverse events with enhanced tracking\n- Integrate wearable devices for continuous vitals monitoring (heart rate, oxygen saturation)\n\nVISIT SCHEDULE:\n- More frequent early visits (every 2 weeks for first 8 weeks) for elderly safety\n- Allow flexible scheduling windows for patient convenience\n- Include optional telemedicine check-ins between site visits\n\nCRF DATA COLLECTION:\n- Capture detailed biomarker results (PD-L1 TPS score, testing date, laboratory)\n- Include fields for telemedicine visit quality metrics\n- Add comprehensive geriatric functional status measures\n- Record wearable device data and integration success\n- Track COVID-19 status and vaccination dates"
+}

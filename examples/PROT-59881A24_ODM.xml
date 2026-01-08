@@ -1,0 +1,950 @@
+<?xml version="1.0" ?>
+<ODM xmlns="http://www.cdisc.org/ns/odm/v1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ODMVersion="1.3.2" FileOID="ODM.PROT-59881A24.20251112205329" FileType="Snapshot" CreationDateTime="2025-11-12T20:53:29.631328" AsOfDateTime="2025-11-12T20:53:29.631328" SourceSystem="Clinical Trial Protocol Generator" SourceSystemVersion="1.0">
+  <Study OID="PROT-59881A24">
+    <GlobalVariables>
+      <StudyName>Test Clinical Trial Protocol</StudyName>
+      <StudyDescription>Phase 2 This Phase 2 randomized, double-blind, placebo-controlled trial aims to evaluate the efficacy and safety of a novel therapeutic agent in adult patients with Type 2 Diabetes Mellitus. The study will enroll 100 participants who will be randomly assigned in a 1:1 ratio to receive either the investigational drug or a placebo for a duration of 24 weeks. The primary endpoint is the change in HbA1c levels from baseline to week 24, assessing the drug's impact on glycemic control. Secondary endpoints include fasting plasma glucose, body weight, and safety profile, specifically monitoring for hypoglycemic events and changes in lipid parameters. Participants will undergo regular assessments, including continuous glucose monitoring and standardized meal tolerance tests, to ensure comprehensive evaluation of metabolic effects relevant to Type 2 Diabetes Mellitus. study in Type 2 Diabetes Mellitus</StudyDescription>
+      <ProtocolName>PROT-59881A24</ProtocolName>
+    </GlobalVariables>
+    <MetaDataVersion OID="MDV.PROT-59881A24.1.0" Name="Study MetaData Version 1.0" Description="Metadata for Test Clinical Trial Protocol">
+      <Protocol>
+        <Description>
+          <TranslatedText xml:lang="en">Phase 2 This Phase 2 randomized, double-blind, placebo-controlled trial aims to evaluate the efficacy and safety of a novel therapeutic agent in adult patients with Type 2 Diabetes Mellitus. The study will enroll 100 participants who will be randomly assigned in a 1:1 ratio to receive either the investigational drug or a placebo for a duration of 24 weeks. The primary endpoint is the change in HbA1c levels from baseline to week 24, assessing the drug's impact on glycemic control. Secondary endpoints include fasting plasma glucose, body weight, and safety profile, specifically monitoring for hypoglycemic events and changes in lipid parameters. Participants will undergo regular assessments, including continuous glucose monitoring and standardized meal tolerance tests, to ensure comprehensive evaluation of metabolic effects relevant to Type 2 Diabetes Mellitus. study evaluating treatment in patients with Type 2 Diabetes Mellitus</TranslatedText>
+        </Description>
+        <StudyObjective OID="OBJ.PRIMARY">
+          <Description>
+            <TranslatedText xml:lang="en">To evaluate the efficacy of the investigational drug in reducing HbA1c levels in patients with Type 2 Diabetes Mellitus after 24 weeks of treatment.</TranslatedText>
+          </Description>
+        </StudyObjective>
+        <StudyObjective OID="OBJ.SECONDARY">
+          <Description>
+            <TranslatedText xml:lang="en">To assess the safety of the investigational drug by monitoring the incidence of adverse events throughout the study duration; to evaluate the tolerability of the investigational drug through patient-reported outcomes; to assess additional efficacy endpoints such as changes in body weight and fasting plasma glucose levels after 24 weeks of treatment.</TranslatedText>
+          </Description>
+        </StudyObjective>
+        <StudyEventRef StudyEventOID="SE.V0" OrderNumber="1" Mandatory="Yes"/>
+        <StudyEventRef StudyEventOID="SE.V1" OrderNumber="2" Mandatory="Yes"/>
+        <StudyEventRef StudyEventOID="SE.V2" OrderNumber="3" Mandatory="Yes"/>
+        <StudyEventRef StudyEventOID="SE.V3" OrderNumber="4" Mandatory="Yes"/>
+        <StudyEventRef StudyEventOID="SE.V4" OrderNumber="5" Mandatory="Yes"/>
+        <StudyEventRef StudyEventOID="SE.V5" OrderNumber="6" Mandatory="Yes"/>
+        <StudyEventRef StudyEventOID="SE.V6" OrderNumber="7" Mandatory="Yes"/>
+        <StudyEventRef StudyEventOID="SE.V7" OrderNumber="8" Mandatory="Yes"/>
+        <Arm OID="ARM.1" Name="Intervention">
+          <Description>
+            <TranslatedText xml:lang="en">Intervention</TranslatedText>
+          </Description>
+        </Arm>
+        <Arm OID="ARM.2" Name="Control">
+          <Description>
+            <TranslatedText xml:lang="en">Control</TranslatedText>
+          </Description>
+        </Arm>
+        <InclusionExclusionCriteria>
+          <Criterion OID="IC.1" Type="Inclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Age between 18 and 75 years at the time of consent.</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="IC.2" Type="Inclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Documented diagnosis of Type 2 Diabetes Mellitus for at least 6 months prior to screening.</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="IC.3" Type="Inclusion">
+            <Description>
+              <TranslatedText xml:lang="en">HbA1c level between 7.0% and 10.0% at screening.</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="IC.4" Type="Inclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Body Mass Index (BMI) between 25.0 kg/m² and 40.0 kg/m².</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="IC.5" Type="Inclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Currently on stable doses of metformin for at least 3 months prior to screening.</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="IC.6" Type="Inclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Able and willing to provide written informed consent prior to any study-related procedures.</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="IC.7" Type="Inclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Fasting plasma glucose between 126 mg/dL and 200 mg/dL at screening.</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="IC.8" Type="Inclusion">
+            <Description>
+              <TranslatedText xml:lang="en">No significant changes in lifestyle (diet or exercise) anticipated during the study period.</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="IC.9" Type="Inclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Willing to comply with study procedures, including regular clinic visits and laboratory tests.</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="EC.1" Type="Exclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Patients with a history of severe hypoglycemic episodes in the past 6 months.</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="EC.2" Type="Exclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Individuals with a known allergy to the investigational drug or its components.</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="EC.3" Type="Exclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Participants currently taking medication that significantly affects glucose metabolism, unless discontinued at least 4 weeks prior to the study.</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="EC.4" Type="Exclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Subjects with significant renal impairment (eGFR &lt; 30 mL/min/1.73 m2).</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="EC.5" Type="Exclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Patients with active liver disease or significant liver enzyme elevation (ALT or AST &gt; 3 times the upper limit of normal).</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="EC.6" Type="Exclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Individuals with a history of cardiovascular events such as myocardial infarction or stroke within the previous 6 months.</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="EC.7" Type="Exclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Pregnant or breastfeeding women, or those planning to become pregnant during the study period.</TranslatedText>
+            </Description>
+          </Criterion>
+          <Criterion OID="EC.8" Type="Exclusion">
+            <Description>
+              <TranslatedText xml:lang="en">Participants currently enrolled in another clinical trial or who have participated in a clinical trial within the last 30 days.</TranslatedText>
+            </Description>
+          </Criterion>
+        </InclusionExclusionCriteria>
+        <StudyEndPoint OID="EP.1" Type="Primary">
+          <Description>
+            <TranslatedText xml:lang="en">Change in HbA1c from baseline at Week 24</TranslatedText>
+          </Description>
+        </StudyEndPoint>
+        <Condition OID="COND.01">
+          <Description>
+            <TranslatedText xml:lang="en">Type 2 Diabetes Mellitus</TranslatedText>
+          </Description>
+        </Condition>
+      </Protocol>
+      <StudyEventDef OID="SE.V0" Name="Screening" Repeating="No" Type="Scheduled">
+        <Description>
+          <TranslatedText xml:lang="en">Screening - Screening (Window: ±3 days)</TranslatedText>
+        </Description>
+        <FormRef FormOID="FORM.DM" OrderNumber="1" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.VS" OrderNumber="2" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.AE" OrderNumber="3" Mandatory="Yes"/>
+      </StudyEventDef>
+      <StudyEventDef OID="SE.V1" Name="Baseline" Repeating="No" Type="Scheduled">
+        <Description>
+          <TranslatedText xml:lang="en">Baseline - Week 0 (Window: Day 1)</TranslatedText>
+        </Description>
+        <FormRef FormOID="FORM.VS" OrderNumber="1" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.AE" OrderNumber="2" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.EFF" OrderNumber="3" Mandatory="Yes"/>
+      </StudyEventDef>
+      <StudyEventDef OID="SE.V2" Name="Week 4" Repeating="No" Type="Scheduled">
+        <Description>
+          <TranslatedText xml:lang="en">Week 4 - Week 4 (Window: ±7 days)</TranslatedText>
+        </Description>
+        <FormRef FormOID="FORM.VS" OrderNumber="1" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.AE" OrderNumber="2" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.EFF" OrderNumber="3" Mandatory="Yes"/>
+      </StudyEventDef>
+      <StudyEventDef OID="SE.V3" Name="Week 8" Repeating="No" Type="Scheduled">
+        <Description>
+          <TranslatedText xml:lang="en">Week 8 - Week 8 (Window: ±7 days)</TranslatedText>
+        </Description>
+        <FormRef FormOID="FORM.VS" OrderNumber="1" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.AE" OrderNumber="2" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.EFF" OrderNumber="3" Mandatory="Yes"/>
+      </StudyEventDef>
+      <StudyEventDef OID="SE.V4" Name="Week 12" Repeating="No" Type="Scheduled">
+        <Description>
+          <TranslatedText xml:lang="en">Week 12 - Week 12 (Window: ±7 days)</TranslatedText>
+        </Description>
+        <FormRef FormOID="FORM.VS" OrderNumber="1" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.AE" OrderNumber="2" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.EFF" OrderNumber="3" Mandatory="Yes"/>
+      </StudyEventDef>
+      <StudyEventDef OID="SE.V5" Name="Week 16" Repeating="No" Type="Scheduled">
+        <Description>
+          <TranslatedText xml:lang="en">Week 16 - Week 16 (Window: ±7 days)</TranslatedText>
+        </Description>
+        <FormRef FormOID="FORM.VS" OrderNumber="1" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.AE" OrderNumber="2" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.EFF" OrderNumber="3" Mandatory="Yes"/>
+      </StudyEventDef>
+      <StudyEventDef OID="SE.V6" Name="Week 20" Repeating="No" Type="Scheduled">
+        <Description>
+          <TranslatedText xml:lang="en">Week 20 - Week 20 (Window: ±7 days)</TranslatedText>
+        </Description>
+        <FormRef FormOID="FORM.VS" OrderNumber="1" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.AE" OrderNumber="2" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.EFF" OrderNumber="3" Mandatory="Yes"/>
+      </StudyEventDef>
+      <StudyEventDef OID="SE.V7" Name="Week 24" Repeating="No" Type="Scheduled">
+        <Description>
+          <TranslatedText xml:lang="en">Week 24 - Week 24 (Window: ±7 days)</TranslatedText>
+        </Description>
+        <FormRef FormOID="FORM.VS" OrderNumber="1" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.AE" OrderNumber="2" Mandatory="Yes"/>
+        <FormRef FormOID="FORM.EFF" OrderNumber="3" Mandatory="Yes"/>
+      </StudyEventDef>
+      <FormDef OID="FORM.DM" Name="Demographics" Repeating="No">
+        <Description>
+          <TranslatedText xml:lang="en">Subject demographics and baseline characteristics</TranslatedText>
+        </Description>
+        <ItemGroupRef ItemGroupOID="IG.DM" Mandatory="Yes" OrderNumber="1"/>
+      </FormDef>
+      <FormDef OID="FORM.VS" Name="Vital Signs" Repeating="No">
+        <Description>
+          <TranslatedText xml:lang="en">Vital signs assessment</TranslatedText>
+        </Description>
+        <ItemGroupRef ItemGroupOID="IG.VS" Mandatory="Yes" OrderNumber="1"/>
+      </FormDef>
+      <FormDef OID="FORM.AE" Name="Adverse Events" Repeating="Yes">
+        <Description>
+          <TranslatedText xml:lang="en">Adverse event reporting</TranslatedText>
+        </Description>
+        <ItemGroupRef ItemGroupOID="IG.AE" Mandatory="Yes" OrderNumber="1"/>
+      </FormDef>
+      <FormDef OID="FORM.LABS" Name="Laboratory Tests" Repeating="Yes">
+        <Description>
+          <TranslatedText xml:lang="en">Comprehensive metabolic panel including liver and kidney function tests</TranslatedText>
+        </Description>
+        <ItemGroupRef ItemGroupOID="IG.LABS" Mandatory="Yes" OrderNumber="1"/>
+      </FormDef>
+      <FormDef OID="FORM.HBA1C" Name="HbA1c" Repeating="Yes">
+        <Description>
+          <TranslatedText xml:lang="en">Measurement of glycated hemoglobin to assess long-term glucose control</TranslatedText>
+        </Description>
+        <ItemGroupRef ItemGroupOID="IG.HBA1C" Mandatory="Yes" OrderNumber="1"/>
+      </FormDef>
+      <FormDef OID="FORM.FBG" Name="Fasting Blood Glucose" Repeating="Yes">
+        <Description>
+          <TranslatedText xml:lang="en">Measurement of fasting blood glucose levels</TranslatedText>
+        </Description>
+        <ItemGroupRef ItemGroupOID="IG.FBG" Mandatory="Yes" OrderNumber="1"/>
+      </FormDef>
+      <FormDef OID="FORM.PPG" Name="Postprandial Glucose" Repeating="Yes">
+        <Description>
+          <TranslatedText xml:lang="en">Measurement of blood glucose levels two hours after meals</TranslatedText>
+        </Description>
+        <ItemGroupRef ItemGroupOID="IG.PPG" Mandatory="Yes" OrderNumber="1"/>
+      </FormDef>
+      <FormDef OID="FORM.BW" Name="Body Weight" Repeating="Yes">
+        <Description>
+          <TranslatedText xml:lang="en">Measurement of body weight to monitor changes</TranslatedText>
+        </Description>
+        <ItemGroupRef ItemGroupOID="IG.BW" Mandatory="Yes" OrderNumber="1"/>
+      </FormDef>
+      <FormDef OID="FORM.BMI" Name="Body Mass Index" Repeating="Yes">
+        <Description>
+          <TranslatedText xml:lang="en">Calculation of BMI to monitor weight changes in relation to height</TranslatedText>
+        </Description>
+        <ItemGroupRef ItemGroupOID="IG.BMI" Mandatory="Yes" OrderNumber="1"/>
+      </FormDef>
+      <FormDef OID="FORM.INSULIN" Name="Insulin Levels" Repeating="Yes">
+        <Description>
+          <TranslatedText xml:lang="en">Measurement of fasting insulin levels to assess insulin resistance</TranslatedText>
+        </Description>
+        <ItemGroupRef ItemGroupOID="IG.INSULIN" Mandatory="Yes" OrderNumber="1"/>
+      </FormDef>
+      <ItemGroupDef OID="IG.DM" Name="Demographics Items" Repeating="No">
+        <Description>
+          <TranslatedText xml:lang="en">Item group for Demographics</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="IT.SUBJID" OrderNumber="1" Mandatory="Yes">
+          <Role RoleCodeListOID="CL.ROLE">USUBJID</Role>
+        </ItemRef>
+        <ItemRef ItemOID="IT.AGE" OrderNumber="2" Mandatory="Yes">
+          <Role RoleCodeListOID="CL.ROLE">AGE</Role>
+        </ItemRef>
+        <ItemRef ItemOID="IT.SEX" OrderNumber="3" Mandatory="Yes">
+          <Role RoleCodeListOID="CL.ROLE">SEX</Role>
+        </ItemRef>
+        <ItemRef ItemOID="IT.RACE" OrderNumber="4" Mandatory="Yes">
+          <Role RoleCodeListOID="CL.ROLE">RACE</Role>
+        </ItemRef>
+      </ItemGroupDef>
+      <ItemGroupDef OID="IG.VS" Name="Vital Signs Items" Repeating="No">
+        <Description>
+          <TranslatedText xml:lang="en">Item group for Vital Signs</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="IT.VS_DATE" OrderNumber="1" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.SYSBP" OrderNumber="2" Mandatory="Yes">
+          <Role RoleCodeListOID="CL.ROLE">VSSTRESN</Role>
+        </ItemRef>
+        <ItemRef ItemOID="IT.DIABP" OrderNumber="3" Mandatory="Yes">
+          <Role RoleCodeListOID="CL.ROLE">VSSTRESN</Role>
+        </ItemRef>
+        <ItemRef ItemOID="IT.HR" OrderNumber="4" Mandatory="Yes">
+          <Role RoleCodeListOID="CL.ROLE">VSSTRESN</Role>
+        </ItemRef>
+        <ItemRef ItemOID="IT.TEMP" OrderNumber="5" Mandatory="Yes">
+          <Role RoleCodeListOID="CL.ROLE">VSSTRESN</Role>
+        </ItemRef>
+      </ItemGroupDef>
+      <ItemGroupDef OID="IG.AE" Name="Adverse Events Items" Repeating="No">
+        <Description>
+          <TranslatedText xml:lang="en">Item group for Adverse Events</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="IT.AE_TERM" OrderNumber="1" Mandatory="Yes">
+          <Role RoleCodeListOID="CL.ROLE">AETERM</Role>
+        </ItemRef>
+        <ItemRef ItemOID="IT.AE_START" OrderNumber="2" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.AE_SEV" OrderNumber="3" Mandatory="Yes">
+          <Role RoleCodeListOID="CL.ROLE">AESEV</Role>
+        </ItemRef>
+        <ItemRef ItemOID="IT.AE_REL" OrderNumber="4" Mandatory="Yes">
+          <Role RoleCodeListOID="CL.ROLE">AEREL</Role>
+        </ItemRef>
+      </ItemGroupDef>
+      <ItemGroupDef OID="IG.LABS" Name="Laboratory Tests Items" Repeating="No">
+        <Description>
+          <TranslatedText xml:lang="en">Item group for Laboratory Tests</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="IT.TEST_NAME" OrderNumber="1" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.RESULT_VALUE" OrderNumber="2" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.UNITS" OrderNumber="3" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.NORMAL_RANGE" OrderNumber="4" Mandatory="No"/>
+        <ItemRef ItemOID="IT.COLLECTION_DATE" OrderNumber="5" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.FASTING_STATUS" OrderNumber="6" Mandatory="Yes"/>
+      </ItemGroupDef>
+      <ItemGroupDef OID="IG.HBA1C" Name="HbA1c Items" Repeating="No">
+        <Description>
+          <TranslatedText xml:lang="en">Item group for HbA1c</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="IT.HB1C_TEST_DATE" OrderNumber="1" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.HB1C_RESULT" OrderNumber="2" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.HB1C_UNITS" OrderNumber="3" Mandatory="No"/>
+        <ItemRef ItemOID="IT.HB1C_NORMAL_RANGE" OrderNumber="4" Mandatory="No"/>
+        <ItemRef ItemOID="IT.HB1C_METHOD" OrderNumber="5" Mandatory="No"/>
+      </ItemGroupDef>
+      <ItemGroupDef OID="IG.FBG" Name="Fasting Blood Glucose Items" Repeating="No">
+        <Description>
+          <TranslatedText xml:lang="en">Item group for Fasting Blood Glucose</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="IT.FBG_DATE" OrderNumber="1" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.FBG_TIME" OrderNumber="2" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.FBG_VALUE" OrderNumber="3" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.FBG_UNITS" OrderNumber="4" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.FBG_NORM_RANGE" OrderNumber="5" Mandatory="No"/>
+        <ItemRef ItemOID="IT.FBG_COMMENTS" OrderNumber="6" Mandatory="No"/>
+      </ItemGroupDef>
+      <ItemGroupDef OID="IG.PPG" Name="Postprandial Glucose Items" Repeating="No">
+        <Description>
+          <TranslatedText xml:lang="en">Item group for Postprandial Glucose</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="IT.PPG_DATE" OrderNumber="1" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.PPG_TIME" OrderNumber="2" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.PPG_VALUE" OrderNumber="3" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.PPG_UNITS" OrderNumber="4" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.MEAL_TYPE" OrderNumber="5" Mandatory="No"/>
+        <ItemRef ItemOID="IT.PPG_COMMENTS" OrderNumber="6" Mandatory="No"/>
+      </ItemGroupDef>
+      <ItemGroupDef OID="IG.BW" Name="Body Weight Items" Repeating="No">
+        <Description>
+          <TranslatedText xml:lang="en">Item group for Body Weight</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="IT.BW_DATE" OrderNumber="1" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.BW_WEIGHT" OrderNumber="2" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.BW_METHOD" OrderNumber="3" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.BW_CHANGE" OrderNumber="4" Mandatory="No"/>
+        <ItemRef ItemOID="IT.BW_COMMENTS" OrderNumber="5" Mandatory="No"/>
+      </ItemGroupDef>
+      <ItemGroupDef OID="IG.BMI" Name="Body Mass Index Items" Repeating="No">
+        <Description>
+          <TranslatedText xml:lang="en">Item group for Body Mass Index</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="IT.HEIGHT_CM" OrderNumber="1" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.WEIGHT_KG" OrderNumber="2" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.BMI_VALUE" OrderNumber="3" Mandatory="No"/>
+        <ItemRef ItemOID="IT.BMI_CATEGORY" OrderNumber="4" Mandatory="No"/>
+        <ItemRef ItemOID="IT.ASSESSMENT_DATE" OrderNumber="5" Mandatory="Yes"/>
+      </ItemGroupDef>
+      <ItemGroupDef OID="IG.INSULIN" Name="Insulin Levels Items" Repeating="No">
+        <Description>
+          <TranslatedText xml:lang="en">Item group for Insulin Levels</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="IT.INSULIN_DATE" OrderNumber="1" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.FASTING_INSULIN_LEVEL" OrderNumber="2" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.INSULIN_UNIT" OrderNumber="3" Mandatory="Yes"/>
+        <ItemRef ItemOID="IT.NORMAL_RANGE" OrderNumber="4" Mandatory="No"/>
+        <ItemRef ItemOID="IT.INSULIN_RESISTANCE_INDICATOR" OrderNumber="5" Mandatory="No"/>
+      </ItemGroupDef>
+      <ItemDef OID="IT.SUBJID" Name="subject_id" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Subject ID</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Subject ID (Required)</TranslatedText>
+        </Description>
+        <Alias Context="CDASH" Name="SUBJID"/>
+        <Alias Context="SDTM" Name="USUBJID"/>
+      </ItemDef>
+      <ItemDef OID="IT.AGE" Name="age" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">Age (years)</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Age (years) (Required) - Validation: {&quot;min&quot;: 0, &quot;max&quot;: 120}</TranslatedText>
+        </Description>
+        <Alias Context="CDASH" Name="AGE"/>
+        <Alias Context="SDTM" Name="AGE"/>
+      </ItemDef>
+      <ItemDef OID="IT.SEX" Name="sex" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Sex</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Sex (Required) - Validation: {&quot;options&quot;: [&quot;Male&quot;, &quot;Female&quot;, &quot;Other&quot;]}</TranslatedText>
+        </Description>
+        <Alias Context="CDASH" Name="SEX"/>
+        <Alias Context="SDTM" Name="SEX"/>
+      </ItemDef>
+      <ItemDef OID="IT.RACE" Name="race" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Race</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Race (Required)</TranslatedText>
+        </Description>
+        <Alias Context="CDASH" Name="RACE"/>
+        <Alias Context="SDTM" Name="RACE"/>
+        <CodeListRef CodeListOID="CL.CDASH_RACE"/>
+      </ItemDef>
+      <ItemDef OID="IT.VS_DATE" Name="assessment_date" DataType="date">
+        <Question>
+          <TranslatedText xml:lang="en">Assessment Date</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Assessment Date (Required)</TranslatedText>
+        </Description>
+        <Alias Context="CDASH" Name="VSDTC"/>
+      </ItemDef>
+      <ItemDef OID="IT.SYSBP" Name="systolic_bp" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">Systolic Blood Pressure (mmHg)</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Systolic Blood Pressure (mmHg) (Required) - Validation: {&quot;min&quot;: 50, &quot;max&quot;: 250}</TranslatedText>
+        </Description>
+        <Alias Context="CDASH" Name="VSORRES"/>
+        <Alias Context="SDTM" Name="VSSTRESN"/>
+      </ItemDef>
+      <ItemDef OID="IT.DIABP" Name="diastolic_bp" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">Diastolic Blood Pressure (mmHg)</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Diastolic Blood Pressure (mmHg) (Required) - Validation: {&quot;min&quot;: 30, &quot;max&quot;: 150}</TranslatedText>
+        </Description>
+        <Alias Context="CDASH" Name="VSORRES"/>
+        <Alias Context="SDTM" Name="VSSTRESN"/>
+      </ItemDef>
+      <ItemDef OID="IT.HR" Name="heart_rate" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">Heart Rate (bpm)</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Heart Rate (bpm) (Required) - Validation: {&quot;min&quot;: 30, &quot;max&quot;: 200}</TranslatedText>
+        </Description>
+        <Alias Context="CDASH" Name="VSORRES"/>
+        <Alias Context="SDTM" Name="VSSTRESN"/>
+      </ItemDef>
+      <ItemDef OID="IT.TEMP" Name="temperature" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">Temperature (°C)</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Temperature (°C) (Required) - Validation: {&quot;min&quot;: 35.0, &quot;max&quot;: 42.0}</TranslatedText>
+        </Description>
+        <Alias Context="CDASH" Name="VSORRES"/>
+        <Alias Context="SDTM" Name="VSSTRESN"/>
+      </ItemDef>
+      <ItemDef OID="IT.AE_TERM" Name="ae_term" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Adverse Event Term</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Adverse Event Term (Required)</TranslatedText>
+        </Description>
+        <Alias Context="CDASH" Name="AETERM"/>
+        <Alias Context="SDTM" Name="AETERM"/>
+      </ItemDef>
+      <ItemDef OID="IT.AE_START" Name="ae_start_date" DataType="date">
+        <Question>
+          <TranslatedText xml:lang="en">Start Date</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Start Date (Required)</TranslatedText>
+        </Description>
+        <Alias Context="CDASH" Name="AESTDTC"/>
+      </ItemDef>
+      <ItemDef OID="IT.AE_SEV" Name="severity" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Severity</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Severity (Required) - Validation: {&quot;options&quot;: [&quot;Mild&quot;, &quot;Moderate&quot;, &quot;Severe&quot;]}</TranslatedText>
+        </Description>
+        <Alias Context="CDASH" Name="AESEV"/>
+        <Alias Context="SDTM" Name="AESEV"/>
+      </ItemDef>
+      <ItemDef OID="IT.AE_REL" Name="relationship" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Relationship to Study Drug</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Relationship to Study Drug (Required) - Validation: {&quot;options&quot;: [&quot;Not Related&quot;, &quot;Unlikely&quot;, &quot;Possible&quot;, &quot;Probable&quot;, &quot;Definite&quot;]}</TranslatedText>
+        </Description>
+        <Alias Context="CDASH" Name="AEREL"/>
+        <Alias Context="SDTM" Name="AEREL"/>
+      </ItemDef>
+      <ItemDef OID="IT.TEST_NAME" Name="test_name" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Test Name</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Test Name (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.RESULT_VALUE" Name="result_value" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">Result Value</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Result Value (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.UNITS" Name="units" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Units</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Units (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.NORMAL_RANGE" Name="normal_range" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Normal Range</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Normal Range</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.COLLECTION_DATE" Name="collection_date" DataType="date">
+        <Question>
+          <TranslatedText xml:lang="en">Collection Date</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Collection Date (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.FASTING_STATUS" Name="fasting_status" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Fasting Status</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Fasting Status (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.HB1C_TEST_DATE" Name="test_date" DataType="date">
+        <Question>
+          <TranslatedText xml:lang="en">Test Date</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Test Date (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.HB1C_RESULT" Name="result_value" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">HbA1c Result (%)</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">HbA1c Result (%) (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.HB1C_UNITS" Name="result_units" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Result Units</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Result Units</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.HB1C_NORMAL_RANGE" Name="normal_range" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Normal Range (%)</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Normal Range (%)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.HB1C_METHOD" Name="test_method" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Test Method</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Test Method</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.FBG_DATE" Name="fasting_blood_glucose_date" DataType="date">
+        <Question>
+          <TranslatedText xml:lang="en">Date of Fasting Blood Glucose Measurement</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Date of Fasting Blood Glucose Measurement (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.FBG_TIME" Name="fasting_blood_glucose_time" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Time of Fasting Blood Glucose Measurement</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Time of Fasting Blood Glucose Measurement (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.FBG_VALUE" Name="fasting_blood_glucose_value" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">Fasting Blood Glucose Value</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Fasting Blood Glucose Value (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.FBG_UNITS" Name="fasting_blood_glucose_units" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Units of Measurement</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Units of Measurement (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.FBG_NORM_RANGE" Name="fasting_blood_glucose_normal_range" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Normal Range for Fasting Blood Glucose</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Normal Range for Fasting Blood Glucose</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.FBG_COMMENTS" Name="fasting_blood_glucose_comments" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Comments</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Comments</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.PPG_DATE" Name="postprandial_glucose_date" DataType="date">
+        <Question>
+          <TranslatedText xml:lang="en">Date of Postprandial Glucose Measurement</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Date of Postprandial Glucose Measurement (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.PPG_TIME" Name="postprandial_glucose_time" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Time of Postprandial Glucose Measurement</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Time of Postprandial Glucose Measurement (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.PPG_VALUE" Name="postprandial_glucose_value" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">Postprandial Glucose Value</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Postprandial Glucose Value (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.PPG_UNITS" Name="postprandial_glucose_units" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Units of Measurement</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Units of Measurement (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.MEAL_TYPE" Name="meal_type" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Type of Meal Consumed</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Type of Meal Consumed</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.PPG_COMMENTS" Name="postprandial_glucose_comments" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Comments or Observations</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Comments or Observations</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.BW_DATE" Name="assessment_date" DataType="date">
+        <Question>
+          <TranslatedText xml:lang="en">Assessment Date</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Assessment Date (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.BW_WEIGHT" Name="body_weight" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">Body Weight (kg)</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Body Weight (kg) (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.BW_METHOD" Name="measurement_method" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Measurement Method</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Measurement Method (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.BW_CHANGE" Name="weight_change" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">Weight Change Since Last Visit (kg)</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Weight Change Since Last Visit (kg)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.BW_COMMENTS" Name="comments" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Comments</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Comments</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.HEIGHT_CM" Name="height_cm" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">Height (cm)</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Height (cm) (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.WEIGHT_KG" Name="weight_kg" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">Weight (kg)</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Weight (kg) (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.BMI_VALUE" Name="bmi_value" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">BMI Value</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">BMI Value</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.BMI_CATEGORY" Name="bmi_category" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">BMI Category</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">BMI Category</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.ASSESSMENT_DATE" Name="assessment_date" DataType="date">
+        <Question>
+          <TranslatedText xml:lang="en">Assessment Date</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Assessment Date (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.INSULIN_DATE" Name="assessment_date" DataType="date">
+        <Question>
+          <TranslatedText xml:lang="en">Assessment Date</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Assessment Date (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.FASTING_INSULIN_LEVEL" Name="fasting_insulin_level" DataType="integer">
+        <Question>
+          <TranslatedText xml:lang="en">Fasting Insulin Level</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Fasting Insulin Level (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.INSULIN_UNIT" Name="insulin_unit" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Insulin Level Unit</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Insulin Level Unit (Required)</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.NORMAL_RANGE" Name="normal_range" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Normal Range</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Normal Range</TranslatedText>
+        </Description>
+      </ItemDef>
+      <ItemDef OID="IT.INSULIN_RESISTANCE_INDICATOR" Name="insulin_resistance_indicator" DataType="text">
+        <Question>
+          <TranslatedText xml:lang="en">Insulin Resistance Indicator</TranslatedText>
+        </Question>
+        <Description>
+          <TranslatedText xml:lang="en">Insulin Resistance Indicator</TranslatedText>
+        </Description>
+      </ItemDef>
+      <CodeList OID="CL.NY" Name="No Yes Response" DataType="text">
+        <CodeListItem CodedValue="N">
+          <Decode>
+            <TranslatedText xml:lang="en">No</TranslatedText>
+          </Decode>
+        </CodeListItem>
+        <CodeListItem CodedValue="Y">
+          <Decode>
+            <TranslatedText xml:lang="en">Yes</TranslatedText>
+          </Decode>
+        </CodeListItem>
+      </CodeList>
+      <CodeList OID="CL.SEX" Name="Sex" DataType="text">
+        <CodeListItem CodedValue="M">
+          <Decode>
+            <TranslatedText xml:lang="en">Male</TranslatedText>
+          </Decode>
+        </CodeListItem>
+        <CodeListItem CodedValue="F">
+          <Decode>
+            <TranslatedText xml:lang="en">Female</TranslatedText>
+          </Decode>
+        </CodeListItem>
+        <CodeListItem CodedValue="U">
+          <Decode>
+            <TranslatedText xml:lang="en">Unknown</TranslatedText>
+          </Decode>
+        </CodeListItem>
+      </CodeList>
+      <StudyParameterListRef StudyParameterListOID="SPL.COMMON"/>
+      <StudyParameterList OID="SPL.COMMON">
+        <StudyParameter OID="SP.SAMPLE_SIZE" Name="Sample Size">100</StudyParameter>
+        <StudyParameter OID="SP.DURATION" Name="Study Duration (weeks)">24</StudyParameter>
+        <StudyParameter OID="SP.PHASE" Name="Study Phase">Phase 2</StudyParameter>
+      </StudyParameterList>
+      <MethodDef OID="MT.STATISTICAL" Name="Statistical Analysis Plan" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Statistical Analysis Plan: sample_size: 100; power: 0.8; alpha: 0.05; primary_analysis: ANCOVA adjusting for baseline</TranslatedText>
+        </Description>
+      </MethodDef>
+      <MethodDef OID="MT.VALIDATION.1" Name="Validation for age" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Validation rules for Age (years): min=0, max=120</TranslatedText>
+        </Description>
+        <FormalExpression Context="Python">value &gt;= 0 and value &lt;= 120</FormalExpression>
+      </MethodDef>
+      <MethodDef OID="MT.VALIDATION.2" Name="Validation for sex" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Validation rules for Sex: options=['Male', 'Female', 'Other']</TranslatedText>
+        </Description>
+      </MethodDef>
+      <MethodDef OID="MT.VALIDATION.3" Name="Validation for systolic_bp" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Validation rules for Systolic Blood Pressure (mmHg): min=50, max=250</TranslatedText>
+        </Description>
+        <FormalExpression Context="Python">value &gt;= 50 and value &lt;= 250</FormalExpression>
+      </MethodDef>
+      <MethodDef OID="MT.VALIDATION.4" Name="Validation for diastolic_bp" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Validation rules for Diastolic Blood Pressure (mmHg): min=30, max=150</TranslatedText>
+        </Description>
+        <FormalExpression Context="Python">value &gt;= 30 and value &lt;= 150</FormalExpression>
+      </MethodDef>
+      <MethodDef OID="MT.VALIDATION.5" Name="Validation for heart_rate" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Validation rules for Heart Rate (bpm): min=30, max=200</TranslatedText>
+        </Description>
+        <FormalExpression Context="Python">value &gt;= 30 and value &lt;= 200</FormalExpression>
+      </MethodDef>
+      <MethodDef OID="MT.VALIDATION.6" Name="Validation for temperature" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Validation rules for Temperature (°C): min=35.0, max=42.0</TranslatedText>
+        </Description>
+        <FormalExpression Context="Python">value &gt;= 35.0 and value &lt;= 42.0</FormalExpression>
+      </MethodDef>
+      <MethodDef OID="MT.VALIDATION.7" Name="Validation for severity" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Validation rules for Severity: options=['Mild', 'Moderate', 'Severe']</TranslatedText>
+        </Description>
+      </MethodDef>
+      <MethodDef OID="MT.VALIDATION.8" Name="Validation for relationship" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Validation rules for Relationship to Study Drug: options=['Not Related', 'Unlikely', 'Possible', 'Probable', 'Definite']</TranslatedText>
+        </Description>
+      </MethodDef>
+      <MeasurementUnit OID="UNIT.KG" Name="Kilograms">
+        <Symbol>
+          <TranslatedText xml:lang="en">kg</TranslatedText>
+        </Symbol>
+      </MeasurementUnit>
+      <MeasurementUnit OID="UNIT.CM" Name="Centimeters">
+        <Symbol>
+          <TranslatedText xml:lang="en">cm</TranslatedText>
+        </Symbol>
+      </MeasurementUnit>
+      <MeasurementUnit OID="UNIT.MMHG" Name="Millimeters of Mercury">
+        <Symbol>
+          <TranslatedText xml:lang="en">mmHg</TranslatedText>
+        </Symbol>
+      </MeasurementUnit>
+      <MeasurementUnit OID="UNIT.BEATS_MIN" Name="Beats per Minute">
+        <Symbol>
+          <TranslatedText xml:lang="en">beats/min</TranslatedText>
+        </Symbol>
+      </MeasurementUnit>
+      <MeasurementUnit OID="UNIT.CELSIUS" Name="Degrees Celsius">
+        <Symbol>
+          <TranslatedText xml:lang="en">°C</TranslatedText>
+        </Symbol>
+      </MeasurementUnit>
+      <MeasurementUnit OID="UNIT.PERCENT" Name="Percentage">
+        <Symbol>
+          <TranslatedText xml:lang="en">%</TranslatedText>
+        </Symbol>
+      </MeasurementUnit>
+      <MeasurementUnit OID="UNIT.MG_DL" Name="Milligrams per Deciliter">
+        <Symbol>
+          <TranslatedText xml:lang="en">mg/dL</TranslatedText>
+        </Symbol>
+      </MeasurementUnit>
+      <MeasurementUnit OID="UNIT.MMOL_L" Name="Millimoles per Liter">
+        <Symbol>
+          <TranslatedText xml:lang="en">mmol/L</TranslatedText>
+        </Symbol>
+      </MeasurementUnit>
+    </MetaDataVersion>
+  </Study>
+  <ClinicalData StudyOID="PROT-59881A24" MetaDataVersionOID="MDV.PROT-59881A24.1.0">
+    <Comment>This is an empty template. Actual clinical data will be populated during the study.</Comment>
+  </ClinicalData>
+</ODM>
