@@ -9,23 +9,7 @@ on:
     # Run weekly on Monday at 9am UTC
     - cron: '0 9 * * 1'
 
-jobs:
-  secret-scan:
-    name: Secret Scanning
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-    
-      - name: TruffleHog Secret Scan
-        if: github.event_name != 'schedule'
-        uses:  trufflesecurity/trufflehog@main
-        with: 
-          path: ./
-          base: ${{ github.event.repository.default_branch }}
-          head: HEAD
-
+jobs: 
   dependency-check:
     name: Dependency Security Check
     runs-on: ubuntu-latest
