@@ -19,6 +19,7 @@ jobs:
           fetch-depth: 0
       
       - name: TruffleHog Secret Scan
+        if: github.event.before != github.event.after
         uses: trufflesecurity/trufflehog@main
         with:
           path: ./
