@@ -8,6 +8,7 @@ on:
   schedule:
     # Run weekly on Monday at 9am UTC
     - cron: '0 9 * * 1'
+  workflow_dispatch:  # Add this line to enable manual runs
 
 jobs: 
   secret-scan:
