@@ -27,7 +27,7 @@ jobs:
           path: ./
 
       - name: Log TruffleHog Scheduled Scan Status
-        if: github.event_name == 'schedule' && steps.trufflehog-scheduled.outcome != 'success'
+        if: github.event_name == 'schedule' && steps.trufflehog-scheduled.outcome == 'failure'
         run: |
           echo "::notice::TruffleHog scheduled scan skipped or encountered no new commits to scan. This is expected behavior for scheduled runs when the repository hasn't changed."
 
@@ -42,7 +42,7 @@ jobs:
           head: HEAD
 
       - name: Log TruffleHog Incremental Scan Status
-        if: github.event_name != 'schedule' && steps.trufflehog-incremental.outcome != 'success'
+        if: github.event_name != 'schedule' && steps.trufflehog-incremental.outcome == 'failure'
         run: |
           echo "::notice::TruffleHog incremental scan skipped or encountered no new commits to scan. This is expected when BASE and HEAD commits are identical." 
 
